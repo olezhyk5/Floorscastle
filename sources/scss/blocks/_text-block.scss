@@ -1,0 +1,40 @@
+@import "../variables";
+
+.flc-text-block {
+    background-color: #f8f7f4;
+    padding: 75px 0;
+    @media (max-width: 991px) {
+        padding: 60px 0;
+    }
+    @media (max-width: 767px) {
+        padding: 50px 0;
+    }
+
+    &__title {
+        @extend %h2;
+        color: $brand-primary;
+        font-family: $font-family-garamond;
+        margin: 0 0 10px;
+    }
+
+    &__subtitle {
+        @extend %h3;
+        color: $brand-primary;
+        font-family: $font-family-crimson-pro;
+        font-weight: 300;
+        font-style: italic;
+        margin: 0 0 25px;
+    }
+
+    &__text {
+        p {
+            @extend %text-16;
+            margin: 0 0 25px;
+            color: $text-gray-color;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

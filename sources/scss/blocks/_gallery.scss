@@ -1,0 +1,41 @@
+@import "../variables";
+
+.flc-gallery {
+    &.gallery-block {
+        padding: 70px 0;
+        background-color: #f8f7f4;
+        @media (max-width: 991px) {
+            padding: 60px 0;
+        }
+        @media (max-width: 767px) {
+            padding: 50px 0 40px;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        @extend %h2;
+        font-family: $font-family-garamond;
+        color: $brand-primary;
+        margin: 0 0 40px;
+        @media (max-width: 991px) {
+            margin: 0 0 30px;
+        }
+    }
+
+    &__item {
+        display: block;
+        padding-bottom: 67.2%;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+}

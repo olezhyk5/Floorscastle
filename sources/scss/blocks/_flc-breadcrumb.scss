@@ -1,0 +1,50 @@
+@import "../variables";
+
+.flc-breadcrumb {
+    background-color: $light-gray;
+    padding: 24px 0;
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &-item {
+            @extend %text-12;
+            text-transform: uppercase;
+            line-height: 1.833;
+            margin-right: 20px;
+            color: $brand-primary;
+            position: relative;
+
+            &:after {
+                content: '>';
+                display: block;
+                color: $brand-primary;
+                top: 0;
+                position: absolute;
+                right: -15px;
+            }
+
+            &:last-child {
+                margin-right: 0;
+                &:after {
+                    display: none;
+                }
+            }
+
+            & > a {
+                display: block;
+                text-decoration: none;
+                color: $brand-primary;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

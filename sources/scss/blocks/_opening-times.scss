@@ -1,0 +1,44 @@
+@import "../variables";
+
+.flc-times {
+    padding: 85px 0 100px;
+
+    &__block {
+        margin-bottom: 60px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__table {
+        &-header {
+            background-color: $brand-primary;
+            font-size: 21px;
+            font-family: $font-family-crimson-pro;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.143;
+            color: $text-light-color;
+            padding: 18px 20px;
+        }
+
+        &-body {
+        }
+
+        &-line {
+            padding: 18px 0;
+            @extend %text-16;
+            line-height: 1.5;
+            color: $text-gray-color;
+
+            &:last-child {
+                background-color: $light-gray;
+            }
+
+            .col-6 {
+                padding: 0 20px;
+            }
+        }
+    }
+}

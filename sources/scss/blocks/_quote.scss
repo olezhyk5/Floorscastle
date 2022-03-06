@@ -1,0 +1,67 @@
+@import "../variables";
+
+.flc-quote {
+    padding: 220px 0 190px;
+    background-color: $brand-primary;
+    @media (max-width: 1199px) {
+        padding: 190px 0 150px;
+    }
+    @media (max-width: 767px) {
+        padding: 100px 0 80px;
+    }
+
+    &__wrap {
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 60px;
+        font-family: $font-family-crimson-pro;
+        color: #F8F7F4;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 1.133;
+        margin: 0 0 15px;
+        position: relative;
+        @media (max-width: 1199px) {
+            font-size: 50px;
+        }
+        @media (max-width: 767px) {
+            font-size: 40px;
+        }
+        @media (max-width: 575px) {
+            font-size: 35px;
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            width: 27px;
+            height: 23px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -65px;
+            margin: auto;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("../img/quote.png");
+            @media (max-width: 767px) {
+                top: -40px;
+                width: 20px;
+                height: 17px;
+            }
+        }
+    }
+
+    &__author {
+        font-size: 13px;
+        color: $text-light-color;
+        text-transform: uppercase;
+        line-height: 1.2;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+}

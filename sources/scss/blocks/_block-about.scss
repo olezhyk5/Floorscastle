@@ -1,0 +1,110 @@
+@import "../variables";
+
+.flc-about {
+    padding: 100px;
+    @media (max-width: 991px) {
+        padding: 80px 0;
+    }
+    @media (max-width: 767px) {
+        padding: 60px 0;
+    }
+    @media (max-width: 991px) {
+        padding: 50px 0;
+    }
+
+    &__top-title {
+        font-size: 18px;
+        text-transform: uppercase;
+        line-height: 1.2;
+        color: $brand-primary;
+        letter-spacing: 1px;
+        margin: 0 0 5px;
+        @media (max-width: 1199px) {
+            font-size: 16px;
+        }
+    }
+
+    &__title {
+        font-size: 48px;
+        font-family: $font-family-garamond;
+        font-weight: 400;
+        line-height: 1.2;
+        color: $brand-primary;
+        margin: 0 0 10px;
+        @media (max-width: 1199px) {
+            font-size: 40px;
+        }
+        @media (max-width: 991px) {
+            font-size: 34px;
+        }
+        @media (max-width: 767px) {
+            font-size: 30px;
+        }
+    }
+
+    &__subtitle {
+        @extend %h3;
+        font-family: $font-family-crimson-pro;
+        font-weight: 300;
+        font-style: italic;
+        color: $brand-primary;
+        margin: 0 0 35px;
+        @media (max-width: 767px) {
+            margin: 0 0 30px;
+        }
+    }
+
+    &__text {
+        color: 4$text-gray-color;
+        margin: 0 0 45px;
+        @media (max-width: 767px) {
+            margin: 0 0 35px;
+        }
+        p {
+            @extend %text-16;
+            margin: 0 0 25px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .flc-btn {
+    }
+
+    &__image {
+        @media (max-width: 991px) {
+            max-width: 600px;
+            margin: 40px auto 0;
+        }
+        &-big {
+            width: 82%;
+            display: block;
+            margin-left: auto;
+            position: relative;
+            z-index: 1;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &-small {
+            width: 67%;
+            display: block;
+            margin-top: -190px;
+            position: relative;
+            z-index: 2;
+            @media (max-width: 1400px) {
+                margin-top: -150px;
+            }
+            @media (max-width: 1199px) {
+                margin-top: -100px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

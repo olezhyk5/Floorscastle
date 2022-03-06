@@ -1,0 +1,109 @@
+@import "../variables";
+
+.flc-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 50px;
+    $title: &;
+
+    &.event_title {
+        #{$title}__main {
+            font-style: normal;
+            font-size: 48px;
+            line-height: 1.2;
+            @media (max-width: 991px) {
+                font-size: 40px;
+            }
+            @media (max-width: 575px) {
+                font-size: 36px;
+            }
+        }
+
+        #{$title}__sub {
+            font-size: 24px;
+            color: $brand-primary;
+            font-family: $font-family-crimson-pro;
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.167;
+            @media (max-width: 767px) {
+                font-size: 22px;
+            }
+            @media (max-width: 575px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    &.page_title {
+        #{$title}__main {
+            font-style: normal;
+            font-size: 48px;
+            line-height: 1.2;
+            margin: 0 0 15px;
+            @media (max-width: 991px) {
+                font-size: 40px;
+            }
+            @media (max-width: 575px) {
+                font-size: 36px;
+            }
+        }
+
+        #{$title}__sub {
+            @extend %h2;
+            font-family: $font-family-crimson-pro;
+            font-weight: 300;
+            font-style: italic;
+            color: $text-gray-color;
+        }
+    }
+
+    &__date {
+        font-size: 20px;
+        font-family: $font-family-crimson-pro;
+        color: $text-light-gray-color;
+        font-style: italic;
+        line-height: 1.5;
+        margin: 0 0 10px;
+        @media (max-width: 767px) {
+            font-size: 18px;
+        }
+    }
+
+    &__main {
+        color: $brand-primary;
+        font-family: $font-family-crimson-pro;
+        font-weight: 300;
+        font-style: italic;
+        margin: 0 0 25px;
+        @media (max-width: 767px) {
+            margin: 0 0 15px;
+        }
+    }
+
+    &__sub {
+        @extend %text-16;
+        padding: 0;
+        margin: 0 0 40px;
+        color: $text-gray-color;
+        @media (max-width: 991px) {
+            margin: 0 0 30px;
+        }
+        @media (max-width: 575px) {
+            margin: 0 0 25px;
+        }
+    }
+
+    &__divide {
+        height: 24px;
+        @media (max-width: 575px) {
+            height: 20px;
+        }
+
+        img {
+            height: 100%;
+        }
+    }
+}
