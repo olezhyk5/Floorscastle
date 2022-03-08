@@ -1,8 +1,17 @@
 @import "../variables";
 
 .flc-text-block {
-    background-color: #f8f7f4;
+    background-color: $light-gray-b;
     padding: 75px 0;
+
+    &.text-center {
+        text-align: center;
+    }
+
+    &.text-right {
+        text-align: right;
+    }
+
     @media (max-width: 991px) {
         padding: 60px 0;
     }

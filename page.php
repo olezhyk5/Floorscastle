@@ -8,9 +8,9 @@ get_header();
 if ( have_posts() ) :
     while ( have_posts()): the_post();
 
-        if ( have_rows('page_content') ) :
+        if ( have_rows('content_blocks') ) :
             // loop through all the rows of flexible content
-            while ( have_rows('page_content') ) : the_row();
+            while ( have_rows('content_blocks') ) : the_row();
 
                 get_template_part( 'template-parts/blocks/' . get_row_layout() );
 
