@@ -8,7 +8,7 @@
 		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
 		@for $i from $font-size-from through $font-size-to {
-			.f-size#{$infix}-#{$i} {font-size: rem($i)}
+			.f-size#{$infix}-#{$i} {font-size: rem($i)} 
 		}
 
 		@each $fs in $font-size-array {

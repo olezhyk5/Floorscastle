@@ -115,11 +115,19 @@
 
     &__soc {
         &-title {
+            display: block;
             text-align: center;
             @extend %text-12;
             color: $text-light-color;
             text-transform: uppercase;
             margin: 0 0 50px;
+
+            &:focus,
+            &:active,
+            &:hover {
+                color: $text-light-color;
+            }
+
             @media(max-width: 991px) {
                 margin: 0 0 40px;
             }
@@ -164,6 +172,7 @@
             flex-wrap: wrap;
         }
 
+        .menu-item,
         &-item {
             margin-right: 20px;
             @media(max-width: 575px) {
