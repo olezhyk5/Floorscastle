@@ -15,6 +15,8 @@ function fc_after_theme_setup() {
     register_nav_menus(
         array(
             'main-menu' => esc_html__( 'Main menu', 'fc' ),
+            'footer-menu' => esc_html__( 'Footer menu', 'fc' ),
+            'copyright-menu' => esc_html__( 'Copyright menu', 'fc' ),
         )
     );
 

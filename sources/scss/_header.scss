@@ -30,6 +30,7 @@
                 align-items: flex-end;
                 text-align: right;
 
+                .menu-item,
                 &-item {
                     margin: 0 0 20px 0;
 
@@ -46,6 +47,9 @@
     }
 
     &__top {
+        max-width: 1400px;
+        margin: auto;
+
         padding: 20px 0;
         border-bottom: 1px solid rgba(232, 228, 218, 0.102);
         position: relative;
@@ -111,7 +115,7 @@
 
             input {
                 width: 200px;
-                background-color: $brand-primary;
+                background-color: transparent;
                 font-size: 16px;
                 font-weight: 300;
                 font-style: italic;
@@ -163,6 +167,9 @@
     }
 
     &__wrap {
+        max-width: 1400px;
+        margin: auto;
+        
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -170,6 +177,39 @@
 
     &__lang {
         width: 130px;
+        position: relative;
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            display: block;
+            color: $text-light-color;
+            font-size: 13px;
+            text-transform: uppercase;
+
+            &:active,
+            &:focus {
+                border: none;
+                background-color: transparent;
+                outline: none;
+            }
+        }
+
+        &:after {
+            content: '';
+            width: 7px;
+            height: 7px;
+            display: block;
+            border-right: 1px solid $text-light-color;
+            border-bottom: 1px solid $text-light-color;
+            position: absolute;
+            right: 0;
+            top: 5px;
+            transform: rotate(45deg);
+        }
     }
 
     &__nav {
@@ -186,6 +226,7 @@
         margin: 0;
         padding: 0;
 
+        .menu-item,
         &-item {
             margin-right: 50px;
             @media (max-width: 1399px) {
@@ -195,6 +236,7 @@
                 margin-right: 25px;
             }
 
+            &.current-menu-item,
             &.active {
                 & > a {
                     &:after {
