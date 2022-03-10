@@ -8,6 +8,8 @@ get_header();
 if ( have_posts() ) :
     while ( have_posts()): the_post();
 
+        get_template_part( 'template-parts/heading' );
+
         if ( have_rows('content_blocks') ) :
             // loop through all the rows of flexible content
             while ( have_rows('content_blocks') ) : the_row();

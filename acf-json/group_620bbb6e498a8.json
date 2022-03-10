@@ -70,11 +70,11 @@
                 "id": ""
             },
             "choices": {
-                "Image": "Image",
-                "Video": "Video"
+                "image": "Image",
+                "video": "Video"
             },
             "allow_null": 0,
-            "default_value": "Image",
+            "default_value": "image",
             "layout": "horizontal",
             "return_format": "value"
         },
@@ -192,8 +192,8 @@
             },
             "default_value": "",
             "min": "",
-            "max": 100,
-            "step": "",
+            "max": 1,
+            "step": "0.1",
             "prepend": "",
             "append": ""
         },
@@ -323,5 +323,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646575244
+    "modified": 1646936610
 }
