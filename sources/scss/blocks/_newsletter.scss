@@ -1,5 +1,3 @@
-@import "../variables";
-
 .flc-newsletter {
     padding: 50px 0 55px;
     background-color: $text-light-color;
@@ -93,6 +91,117 @@
         }
         @media (max-width: 991px) {
             margin-left: 0;
+        }
+    }
+
+    .gform_wrapper.gravity-theme {
+        
+        @media (max-width: 991px) {
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: row;
+
+            @media (max-width: 575px) {
+                flex-direction: column;
+            }
+        }
+        .gform_body {
+            .gform_fields {
+                display: flex;
+                flex-direction: row;
+                grid-row-gap: 0;
+
+                @media (max-width: 575px) {
+                    flex-direction: column;
+                }
+
+                .gfield {
+                    width: 220px;
+                    @media (max-width: 1199px) {
+                        width: 200px;
+                        margin-left: 20px;
+                    }
+
+                    @media (max-width: 991px) {
+                        flex-grow: 1;
+                        width: auto;
+                        margin-right: 20px;
+                        margin-left: 0;
+                    }
+
+                    @media (max-width: 575px) {
+                        width: 100%;
+                        margin: 0 0 20px;
+                        flex-grow: 0;
+                    }
+
+                    input {
+                        border-radius: 0;
+                        border: none;
+                        font-size: 19px;
+                        line-height: 1.2;
+                        font-family: $font-family-crimson-pro;
+                        font-style: italic;
+                        background-color: transparent;
+                        width: 100%;
+                        border-bottom: 1px solid $text-light-gray-color;
+                        transition: all 0.25s;
+                        padding: 10px 5px;
+                        color: $brand-primary;
+
+                        &::placeholder {
+                            color: $text-light-gray-color;
+                        }
+
+                        &:focus, &:active {
+                            border-color: $brand-primary;
+                        }
+
+                        @media (max-width: 575px) {
+                            min-height: unset !important;
+                            line-height: 17px !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .gform_footer {
+            padding: 0;
+            margin: 0 0 0 24px;
+            flex-shrink: 0;
+
+            @media (max-width: 575px) {
+                margin-left: 0;
+            }
+
+            .button {
+                color: $text-light-color;
+                font-size: 13px;
+                line-height: 17px;
+                padding: 15px 30px;
+                background-color: $brand-primary;
+                border: 1px solid $brand-primary;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: all .25s;
+                border-radius: 0;
+                width: max-content;
+                display: block;
+
+                &:hover {
+                    color: $brand-primary;
+                    background-color: transparent;
+                }
+
+                @media (max-width: 575px) {
+                    min-height: unset !important;
+                    line-height: 17px !important;
+                }
+            }
         }
     }
 }

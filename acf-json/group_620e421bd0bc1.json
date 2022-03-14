@@ -225,7 +225,7 @@
         {
             "key": "field_620e4385a1e24",
             "label": "Description",
-            "name": "",
+            "name": "description",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -314,5 +314,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646575236
+    "modified": 1647017885
 }

@@ -30,3 +30,20 @@ function flc_get_bg_color($bg_color) {
 
     return $style;
 }
+
+function flc_data_to_time($date) {
+    $time = 0;
+    $parts = explode('/', $date);
+    $time = strtotime($parts[2] . '-' . $parts[1] . '-' . $parts[0] . ' 09:00');
+
+    return $time;
+}
+
+
+function flc_human_time_diff($since, $diff, $from, $to) {
+    if ( strpos($since, 'hour') !== false ) {
+        return '1 day';
+    }
+    return $since;
+}
+add_filter( 'human_time_diff', 'flc_human_time_diff', 10, 4 );

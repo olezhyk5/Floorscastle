@@ -16,6 +16,7 @@ $address        = get_field('address', 'option');
 $address_button = get_field('address_button', 'option');
 $copyright_text = get_field('copyright_text', 'option');
 ?>
+    </main>
     <footer class="flc-footer">
         <div class="container">
             <?php wp_nav_menu(

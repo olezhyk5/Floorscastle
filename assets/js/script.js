@@ -9,6 +9,8 @@ require("select2/dist/js/select2.full.min");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import { Tooltip, Toast, Popover } from 'bootstrap';
+
 /**
  * is jQuery
  * @param obj
@@ -38,8 +40,17 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
       prevEl: '.flc-reviews-swiper-prev'
     }
   });
+  /*fearured events*/
+
+  var f_swiper = new _swiperBundle.default('.js-fearured-events', {
+    slidesPerView: 1,
+    loop: true,
+    autoplay: {
+      delay: 5000
+    }
+  });
   /*$(".select").select2({
-      minimumResultsForSearch: -1
+  	minimumResultsForSearch: -1
   });*/
 
   $('.flc-header__burger').on('click', function () {
@@ -58,7 +69,15 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
       $('.flc-accordion__item.active').removeClass('active');
       $(this).parent().addClass('active');
     }
-  });
+  }); // popovers
+
+  var popovers = document.querySelector('[data-bs-toggle="popover"]');
+
+  if (popovers !== null) {
+    new bootstrap.Popover(popovers, {
+      container: 'body'
+    });
+  }
 })(jQuery);
 
 },{"lightbox2/dist/js/lightbox":3,"select2/dist/js/select2.full.min":4,"swiper/swiper-bundle":5}],2:[function(require,module,exports){

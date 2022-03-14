@@ -61,25 +61,4 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
             </div>
         </div>
     </header>
-<!-- <header class="d-header">
-    <div class="d-header__nav">
-        <?php wp_nav_menu(
-            array(
-                'container'      => '',
-                'items_wrap'     => '<ul class="d-header__menu">%3$s</ul>',
-                'theme_location' => 'main-menu',
-                'depth'          => 1,
-                'fallback_cb'    => '__return_empty_string',
-            )
-        ); ?>
-        <div class="d-header__close"></div>
-    </div>
-
-    <a href="<?php echo site_url('/'); ?>" class="d-header__logo"><?php esc_html_e('fc', 'fc'); ?></a>
-
-    <div class="d-header__button">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</header> -->
+    <main class="main-wrapper">

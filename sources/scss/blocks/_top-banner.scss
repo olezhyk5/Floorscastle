@@ -1,8 +1,9 @@
-@import "../variables";
-
 .flc-top-banner {
     background-color: $text-light-gray-color;
     position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 
     &__overlay {
         @include full-screen();
@@ -49,6 +50,12 @@
     .flc-breadcrumb {
         padding: 0;
         background-color: transparent;
+        
+        .rank-math-breadcrumb {
+            a, span {
+                color: $white-color;
+            }
+        }
 
         &__list {
             &-item {
