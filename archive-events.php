@@ -32,15 +32,20 @@ $f_args = array(
 );
 
 $f_args = array(
-    'post_type'  => 'events',
-    'posts_per_page' => -1,
-    'order'      => 'ASC',
-    'meta_query' => array(
-        array(
-            'key'     => 'featured',
-            'value'   => 1,
-        ),
-    ),
+	'post_type'  => 'events',
+	'posts_per_page' => -1,
+	'order'      => 'ASC',
+	'meta_query' => array(
+		array(
+			'key'     => 'featured',
+			'value'   => 1,
+		),
+		array(
+			'key' 	  => 'end_date_of_event',
+			'value'   => date('Ymd'),
+			'compare' => '>='
+		)
+	),
 );
 $f_query = new WP_Query( $f_args );
 
@@ -206,35 +211,35 @@ get_header();
 
 
 	<?php if ( ! empty( $form_title ) && ! empty( $form_subtitle ) && ! empty( $form_id ) ): ?>
-        <?php 
-        $args = array(
-            'form_title' => $form_title,
-            'form_subtitle' => $form_subtitle,
-            'form_id' => $form_id,
-        );
-        get_template_part('template-parts/newsletter-form', null, $args); ?>
-    <?php endif ?>
+		<?php 
+		$args = array(
+			'form_title' => $form_title,
+			'form_subtitle' => $form_subtitle,
+			'form_id' => $form_id,
+		);
+		get_template_part('template-parts/newsletter-form', null, $args); ?>
+	<?php endif ?>
 
-    <!-- <main class="d-blog">
+	<!-- <main class="d-blog">
 
-        <?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-            <?php while ( have_posts() ) : the_post(); ?>
-                <div class="d-blog__item">
-                    <?php the_title( '<h2 class="d-blog__title">', '</h2>' ); ?>
-                    <?php the_excerpt(); ?>
-                    <a href="<?php the_permalink(); ?>" class="d-blog__link"><?php esc_html_e('Read More', 'fc'); ?></a>
-                </div>
-            <?php endwhile; ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<div class="d-blog__item">
+					<?php the_title( '<h2 class="d-blog__title">', '</h2>' ); ?>
+					<?php the_excerpt(); ?>
+					<a href="<?php the_permalink(); ?>" class="d-blog__link"><?php esc_html_e('Read More', 'fc'); ?></a>
+				</div>
+			<?php endwhile; ?>
 
-        <?php else : ?>
-            <div class="d-blog__notice">
-                <p><?php esc_html_e('Sorry, no posts matched your criteria.', 'fc'); ?></p>
-                <?php get_search_form(); ?>
-            </div>
-        <?php endif; ?>
+		<?php else : ?>
+			<div class="d-blog__notice">
+				<p><?php esc_html_e('Sorry, no posts matched your criteria.', 'fc'); ?></p>
+				<?php get_search_form(); ?>
+			</div>
+		<?php endif; ?>
 
-    </main> -->
+	</main> -->
 
 <?php
 get_footer();

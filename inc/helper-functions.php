@@ -47,3 +47,23 @@ function flc_human_time_diff($since, $diff, $from, $to) {
     return $since;
 }
 add_filter( 'human_time_diff', 'flc_human_time_diff', 10, 4 );
+
+
+function flc_pre_get_posts($query) {
+    // Events archive
+    if ( ! is_admin() && $query->is_main_query() && is_archive('events') ) {
+        $query->set( 'posts_per_page', 3 );
+        $meta_query = array(
+            array(
+                'key'     => 'end_date_of_event',
+                'value'   => date('Ymd'),
+                'compare' => '>='
+            ),
+        );
+        $query->set('meta_query',$meta_query);
+        // order by - start_date_of_event
+    }
+}
+add_action( 'pre_get_posts', 'flc_pre_get_posts' );
+
+
