@@ -8,9 +8,9 @@
  */
 function fc_fonts_url() {
     $fonts = array(
-        'Crimson+Pro:300,400,500',
-        'EB+Garamond:400,500',
-        'Lato:300,400,700'
+        'Crimson+Pro:ital,300,400,500',
+        'EB+Garamond:ital,300,400,500',
+        'Lato:ital,300,400,700'
     );
 
     $font_url = '';

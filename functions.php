@@ -24,5 +24,7 @@ function fc_after_theme_setup() {
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
+
+    add_image_size( 'product-img', 380, 250, true );
 }
 add_action( 'after_setup_theme', 'fc_after_theme_setup' );

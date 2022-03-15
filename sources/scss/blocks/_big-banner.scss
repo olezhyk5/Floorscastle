@@ -23,7 +23,7 @@
 
     &__content {
         position: relative;
-        z-index: 2;
+        z-index: 3;
         padding: 160px 0 190px;
         text-align: center;
         @media (max-width: 1199px) {
@@ -76,6 +76,14 @@
             &:last-child {
                 margin-right: 0;
             }
+        }
+    }
+
+    .rank-math-breadcrumb {
+        margin-top: 35px;
+
+        a, span {
+            color: $white-color;
         }
     }
 }

@@ -211,13 +211,40 @@
                 "id": ""
             },
             "choices": {
-                "Standard": "Standard",
-                "Large": "Large"
+                "standard": "Standard",
+                "large": "Large"
             },
             "allow_null": 0,
-            "default_value": "Standard",
+            "default_value": "standard",
             "layout": "horizontal",
             "return_format": "value"
+        },
+        {
+            "key": "field_6230e0091c9d3",
+            "label": "Page Subtitle",
+            "name": "page_subtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_620bbdf4ef539",
+                        "operator": "==",
+                        "value": "large"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_620bbe24ef53a",
@@ -323,5 +350,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646936610
+    "modified": 1647370589
 }

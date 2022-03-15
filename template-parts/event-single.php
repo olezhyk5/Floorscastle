@@ -45,14 +45,14 @@ $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_
 		</div>
 		<div class="flc-event__content">
 			<time class="flc-event__date"><?php echo $start_date; ?></time>
-			<a href="<?php the_permalink(); ?>" class="flc-event__title"><?php the_title(); ?></a>
+			<?php the_title('<a href="' . get_the_permalink() . '" class="flc-event__title">', '</a>'); ?>
 			<?php if ( ! empty( $subtitle ) ): ?>
 				<p class="flc-event__text"><?php echo $subtitle; ?></p>
 			<?php endif ?>
 			<div class="d-flex flc-event__footer">
-				<a href="<?php the_permalink(); ?>" title="Read more" class="flc-btn flc-btn-border">Read more</a>
+				<a href="<?php the_permalink(); ?>" title="Read more" class="flc-btn flc-btn-border"><?php esc_html_e('Read more', 'floors-castle'); ?></a>
 				<?php if ( ! empty( $ticket_link ) ): ?>
-					<a href="<?php echo $ticket_link; ?>" title="Book Tickets" class="flc-btn flc-btn-main">Book Tickets</a>
+					<a href="<?php echo $ticket_link; ?>" title="Book Tickets" class="flc-btn flc-btn-main"><?php esc_html_e('Book Tickets', 'floors-castle'); ?></a>
 				<?php endif ?>
 			</div>
 		</div>

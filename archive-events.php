@@ -151,7 +151,7 @@ get_header();
 			<?php if ( have_posts() ) : ?>
 				<div class="row js-load-more-events-container">
 					<?php while ( have_posts() ) : the_post();
-						get_template_part('template-parts/event-single');	
+						get_template_part('template-parts/event-single');
 					endwhile; ?>
 				</div>
 				<?php if ( $wp_query->max_num_pages > 1 ): ?>
