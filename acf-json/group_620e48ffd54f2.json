@@ -315,6 +315,21 @@
             "delay": 0
         },
         {
+            "key": "field_6230c0f1584e6",
+            "label": "Map button",
+            "name": "map_button",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_6228f3c42afd4",
             "label": "Socials",
             "name": "",
@@ -566,6 +581,41 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
+        },
+        {
+            "key": "field_62309a216ed43",
+            "label": "General",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_62309a336ed44",
+            "label": "Google maps key",
+            "name": "google_maps_key",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -586,5 +636,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647257854
+    "modified": 1647362314
 }

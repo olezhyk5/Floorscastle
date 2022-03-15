@@ -53,9 +53,11 @@
         margin: 0 0 5px;
     }
 
-    .rank-math-breadcrumb {
-        a, span {
-            color: $white-color;
+    .flc-breadcrumb {
+        .rank-math-breadcrumb {
+            a, span {
+                color: $white-color;
+            }
         }
     }
 

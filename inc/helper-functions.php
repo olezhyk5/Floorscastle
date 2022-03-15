@@ -7,6 +7,12 @@ if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();	
 }
 
+function flc_acf_google_map_api( $api ){
+    $api['key'] = get_field( 'google_maps_key', 'option' );
+    return $api;
+}
+add_filter('acf/fields/google_map/api', 'flc_acf_google_map_api');
+
 /**
  * Get bg color.
  *
@@ -51,7 +57,8 @@ add_filter( 'human_time_diff', 'flc_human_time_diff', 10, 4 );
 
 function flc_pre_get_posts($query) {
     // Events archive
-    if ( ! is_admin() && $query->is_main_query() && is_archive('events') ) {
+    if ( ! is_admin() && $query->is_main_query() && in_array( $query->get('post_type'), array('events') ) ) {
+    // if ( ! is_admin() && $query->is_main_query() && is_archive('events') ) {
         $query->set( 'posts_per_page', 3 );
         $meta_query = array(
             array(
@@ -126,6 +133,7 @@ function flc_load_more_events() {
             get_template_part('template-parts/event-single');
         }
         $result['html'] = ob_get_clean();
+        wp_reset_postdata();
     }
 
     echo json_encode($result);
@@ -133,3 +141,31 @@ function flc_load_more_events() {
 }
 add_action('wp_ajax_flc_load_more_events', 'flc_load_more_events');
 add_action('wp_ajax_nopriv_flc_load_more_events', 'flc_load_more_events');
+
+
+function flc_get_locations() {
+    $list = array();
+    if ( is_archive('property')) {
+        $args = array(
+            'post_type'      => 'property',
+            'posts_per_page' => -1
+        );
+
+        $e_query = new WP_Query( $args );
+
+        if ( $e_query->have_posts() ) {
+            while ( $e_query->have_posts() ) {
+                $e_query->the_post(); 
+
+                $list[] = array(
+                    'title' => get_the_title(),
+                    'link' => get_the_permalink(),
+                    'location' => get_field('location')
+                );
+            }
+            wp_reset_postdata();
+        }
+    }
+
+    return $list;
+}
