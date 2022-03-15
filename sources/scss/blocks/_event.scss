@@ -136,6 +136,16 @@
         }
     }
 
+    &__loader {
+        padding-top: 80px;
+        img {
+            display: block;
+            width: 38px;
+            height: auto;
+            margin: auto;
+        }
+    }
+
     &__top {
         margin-bottom: 20px;
     }
@@ -190,11 +200,6 @@
             margin: 0;
             color: $white-color;
         }
-
-        // &:hover {
-        //     opacity: 1;
-        //     visibility: visible;
-        // }
     }
 
     &__pop-up {
@@ -241,6 +246,7 @@
         transition: all 0.25s;
         cursor: pointer;
 
+        &:focus,
         &:hover {
             color: $text-gray-color;
             text-decoration: none;

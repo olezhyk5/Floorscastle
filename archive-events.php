@@ -3,6 +3,8 @@
  * Events template file
  */
 
+global $wp_query;
+
 $events_image 		 = get_field('events_title_image', 'option');
 $events_image_anchor = get_field('events_page_title_image_anchor', 'option');
 $events_subtitle 	 = get_field('events_subtitle', 'option');
@@ -32,15 +34,20 @@ $f_args = array(
 );
 
 $f_args = array(
-    'post_type'  => 'events',
-    'posts_per_page' => -1,
-    'order'      => 'ASC',
-    'meta_query' => array(
-        array(
-            'key'     => 'featured',
-            'value'   => 1,
-        ),
-    ),
+	'post_type'  => 'events',
+	'posts_per_page' => -1,
+	'order'      => 'ASC',
+	'meta_query' => array(
+		array(
+			'key'     => 'featured',
+			'value'   => 1,
+		),
+		array(
+			'key' 	  => 'end_date_of_event',
+			'value'   => date('Ymd'),
+			'compare' => '>='
+		)
+	),
 );
 $f_query = new WP_Query( $f_args );
 
@@ -63,7 +70,7 @@ get_header();
 	<div class="flc-page">
 		<div class="container">
 
-			<div class="flc-title @@modify">
+			<div class="flc-title">
 				<div class="row w-100 justify-content-center">
 					<div class="col-xl-6 col-lg-8 col-sm-10">
 						<h2 class="flc-title__main"><?php echo $events_subtitle; ?></h2>
@@ -142,99 +149,29 @@ get_header();
 			} ?>
 
 			<?php if ( have_posts() ) : ?>
-				<div class="row">
+				<div class="row js-load-more-events-container">
 					<?php while ( have_posts() ) : the_post();
-						$ticket_link 		 = get_field('ticket_link');
-						$subtitle 			 = get_field('subtitle');
-						$custom_date_text 	 = get_field('custom_date_text');
-						$start_date_of_event = get_field('start_date_of_event');
-
-						$start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_event; ?>
-						<div class="col-lg-4 col-sm-6">
-							<div class="flc-event">
-								<div class="flc-event__top">
-									<div class="flc-event__image">
-										<?php if ( has_post_thumbnail() ): ?>
-											<img src="<?php the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>">
-										<?php endif ?>
-
-										<div class="d-flex align-items-center justify-content-between flc-event__info">
-											<div class="d-flex align-items-center">
-												<div class="flc-event__pop-up">
-													<div class="flc-event__pop-up-icon"></div>
-													<div class="flc-event__pop-up-block">
-														<span>300</span>
-													</div>
-												</div>
-												<div class="flc-event__pop-up">
-													<div class="flc-event__pop-up-icon"></div>
-													<div class="flc-event__pop-up-block">
-														<span>9.00 - 17.00</span>
-													</div>
-												</div>
-												<div class="flc-event__pop-up">
-													<div class="flc-event__pop-up-icon"></div>
-													<div class="flc-event__pop-up-block">
-														<span>200-400</span>
-													</div>
-												</div>
-											</div>
-											<p>Event in <?php echo human_time_diff(time(), flc_data_to_time($start_date_of_event)); ?></p>
-										</div>
-									</div>
-								</div>
-								<div class="flc-event__content">
-									<time class="flc-event__date"><?php echo $start_date; ?></time>
-									<a href="<?php the_permalink(); ?>" class="flc-event__title"><?php the_title(); ?></a>
-									<?php if ( ! empty( $subtitle ) ): ?>
-										<p class="flc-event__text"><?php echo $subtitle; ?></p>
-									<?php endif ?>
-									<div class="d-flex flc-event__footer">
-										<a href="<?php the_permalink(); ?>" title="Read more" class="flc-btn flc-btn-border">Read more</a>
-										<?php if ( ! empty( $ticket_link ) ): ?>
-											<a href="<?php echo $ticket_link; ?>" title="Book Tickets" class="flc-btn flc-btn-main">Book Tickets</a>
-										<?php endif ?>
-									</div>
-								</div>
-							</div>
-						</div>
-					<?php endwhile; ?>
+						get_template_part('template-parts/event-single');	
+					endwhile; ?>
 				</div>
+				<?php if ( $wp_query->max_num_pages > 1 ): ?>
+					<div class="js-load-more-events flc-event__loader" data-pages="<?php echo $wp_query->max_num_pages; ?>">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/loading.jpeg" alt="loader">
+					</div>
+				<?php endif ?>
 			<?php endif; ?>
 		</div>
 	</div>
 
-
 	<?php if ( ! empty( $form_title ) && ! empty( $form_subtitle ) && ! empty( $form_id ) ): ?>
-        <?php 
-        $args = array(
-            'form_title' => $form_title,
-            'form_subtitle' => $form_subtitle,
-            'form_id' => $form_id,
-        );
-        get_template_part('template-parts/newsletter-form', null, $args); ?>
-    <?php endif ?>
-
-    <!-- <main class="d-blog">
-
-        <?php if ( have_posts() ) : ?>
-
-            <?php while ( have_posts() ) : the_post(); ?>
-                <div class="d-blog__item">
-                    <?php the_title( '<h2 class="d-blog__title">', '</h2>' ); ?>
-                    <?php the_excerpt(); ?>
-                    <a href="<?php the_permalink(); ?>" class="d-blog__link"><?php esc_html_e('Read More', 'fc'); ?></a>
-                </div>
-            <?php endwhile; ?>
-
-        <?php else : ?>
-            <div class="d-blog__notice">
-                <p><?php esc_html_e('Sorry, no posts matched your criteria.', 'fc'); ?></p>
-                <?php get_search_form(); ?>
-            </div>
-        <?php endif; ?>
-
-    </main> -->
+		<?php 
+		$args = array(
+			'form_title' => $form_title,
+			'form_subtitle' => $form_subtitle,
+			'form_id' => $form_id,
+		);
+		get_template_part('template-parts/newsletter-form', null, $args); ?>
+	<?php endif ?>
 
 <?php
 get_footer();
