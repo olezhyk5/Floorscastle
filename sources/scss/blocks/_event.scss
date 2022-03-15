@@ -136,6 +136,16 @@
         }
     }
 
+    &__loader {
+        padding-top: 80px;
+        img {
+            display: block;
+            width: 38px;
+            height: auto;
+            margin: auto;
+        }
+    }
+
     &__top {
         margin-bottom: 20px;
     }

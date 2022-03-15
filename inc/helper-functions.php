@@ -59,11 +59,77 @@ function flc_pre_get_posts($query) {
                 'value'   => date('Ymd'),
                 'compare' => '>='
             ),
+            array(
+                'key'     => 'featured',
+                'value'   => 1,
+                'compare' => '!='
+            ),
         );
         $query->set('meta_query',$meta_query);
-        // order by - start_date_of_event
+        $query->set('order', 'ASC');
+        $query->set('meta_key', 'start_date_of_event');
+        $query->set('orderby', 'meta_value_num');
     }
 }
 add_action( 'pre_get_posts', 'flc_pre_get_posts' );
 
 
+
+function flc_load_more_events() {
+    $result = array(
+        'html' => '',
+        'found_posts' => 0,
+        'max_num_pages' => 0,
+    );
+
+    $args = array(
+        'post_type'      => 'events',
+        'posts_per_page' => 3,
+        'paged'          => isset( $_POST['page'] ) && is_numeric( $_POST['page'] ) ? $_POST['page'] : 1,
+        'order'          => 'ASC',
+        'meta_key'       => 'start_date_of_event',
+        'orderby'        => 'meta_value_num',
+        'meta_query'     => array(
+            array(
+                'key'     => 'featured',
+                'value'   => 1,
+                'compare' => '!='
+            ),
+            array(
+                'key'     => 'end_date_of_event',
+                'value'   => date('Ymd'),
+                'compare' => '>='
+            )
+        ),
+    );
+
+    if ( isset( $_POST['category'] ) && $_POST['category'] != 'all' ) {
+        $args['tax_query'] = array(
+            array(
+                'taxonomy' => 'event_categories',
+                'field'    => 'slug',
+                'terms'    => $_POST['category']
+            )
+        );
+    }
+
+    $e_query = new WP_Query( $args );
+
+    if ( $e_query->have_posts() ) {
+        $result['found_posts'] = $e_query->found_posts;
+        $result['max_num_pages'] = $e_query->max_num_pages;
+
+        ob_start();
+        while ( $e_query->have_posts() ) {
+            $e_query->the_post(); 
+        
+            get_template_part('template-parts/event-single');
+        }
+        $result['html'] = ob_get_clean();
+    }
+
+    echo json_encode($result);
+    die();
+}
+add_action('wp_ajax_flc_load_more_events', 'flc_load_more_events');
+add_action('wp_ajax_nopriv_flc_load_more_events', 'flc_load_more_events');
