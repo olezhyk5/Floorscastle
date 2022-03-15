@@ -21,7 +21,7 @@ $buttons = get_field('buttons');
     <div class="flc-top-banner__bg">
         <?php if ( $page_title_type === 'video' ) : ?>
             <?php if ( ! empty( $page_title_video ) ) : ?>
-                <video width="320" height="240" controls>
+                <video autoplay loop muted>
                     <source src="<?php echo esc_url( $page_title_video['url'] ); ?>" type="video/mp4">
                 </video>
             <?php endif; ?>
@@ -37,14 +37,7 @@ $buttons = get_field('buttons');
             <h1 class="flc-top-banner__title"><?php echo esc_html( $page_title ); ?></h1>
 
             <?php if ( isset( $breadcrumbs ) && $breadcrumbs ) : ?>
-                <div class="flc-breadcrumb">
-                    <ul class="flc-breadcrumb__list">
-                        <li class="flc-breadcrumb__list-item">
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li class="flc-breadcrumb__list-item">Generic Page</li>
-                    </ul>
-                </div>
+                <?php rank_math_the_breadcrumbs(); ?>
             <?php endif; ?>
         </div>
     </div>

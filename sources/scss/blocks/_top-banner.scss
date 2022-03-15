@@ -22,6 +22,12 @@
             @include full-screen();
             @include p-absolute();
         }
+
+        video {
+            object-fit: cover;
+            @include full-screen();
+            @include p-absolute();
+        }
     }
 
     &__content {
@@ -47,15 +53,15 @@
         margin: 0 0 5px;
     }
 
+    .rank-math-breadcrumb {
+        a, span {
+            color: $white-color;
+        }
+    }
+
     .flc-breadcrumb {
         padding: 0;
         background-color: transparent;
-        
-        .rank-math-breadcrumb {
-            a, span {
-                color: $white-color;
-            }
-        }
 
         &__list {
             &-item {

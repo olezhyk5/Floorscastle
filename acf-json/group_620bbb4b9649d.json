@@ -152,13 +152,13 @@
                                         "id": ""
                                     },
                                     "choices": {
-                                        "Standard Text": "Standard Text",
-                                        "Image": "Image",
-                                        "CTA Text": "CTA Text",
-                                        "Image with CTA Text": "Image with CTA Text",
-                                        "Single Testimonial": "Single Testimonial"
+                                        "standard": "Standard Text",
+                                        "image": "Image",
+                                        "cta": "CTA Text",
+                                        "image_cta": "Image with CTA Text",
+                                        "testimonial": "Single Testimonial"
                                     },
-                                    "default_value": false,
+                                    "default_value": "standard",
                                     "allow_null": 0,
                                     "multiple": 0,
                                     "ui": 0,
@@ -190,7 +190,7 @@
                                 {
                                     "key": "field_620bc603abf96",
                                     "label": "Pre-heading",
-                                    "name": "5050_pre-heading",
+                                    "name": "5050_pre_heading",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -199,14 +199,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Standard Text"
-                                            }
-                                        ],
-                                        [
-                                            {
-                                                "field": "field_620bc539abf94",
-                                                "operator": "==",
-                                                "value": "CTA Text"
+                                                "value": "cta"
                                             }
                                         ]
                                     ],
@@ -233,7 +226,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "!=",
-                                                "value": "Image"
+                                                "value": "image"
                                             }
                                         ]
                                     ],
@@ -260,21 +253,21 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Standard Text"
+                                                "value": "standard"
                                             }
                                         ],
                                         [
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "CTA Text"
+                                                "value": "cta"
                                             }
                                         ],
                                         [
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Image with CTA Text"
+                                                "value": "image_cta"
                                             }
                                         ]
                                     ],
@@ -301,7 +294,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "!=",
-                                                "value": "Image"
+                                                "value": "image"
                                             }
                                         ]
                                     ],
@@ -328,7 +321,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Single Testimonial"
+                                                "value": "testimonial"
                                             }
                                         ]
                                     ],
@@ -355,7 +348,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Image"
+                                                "value": "image"
                                             }
                                         ]
                                     ],
@@ -387,7 +380,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Image"
+                                                "value": "image"
                                             }
                                         ]
                                     ],
@@ -448,7 +441,7 @@
                                             {
                                                 "field": "field_620bc539abf94",
                                                 "operator": "==",
-                                                "value": "Image with CTA Text"
+                                                "value": "image_cta"
                                             }
                                         ]
                                     ],
@@ -2192,5 +2185,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646778013
+    "modified": 1647347583
 }

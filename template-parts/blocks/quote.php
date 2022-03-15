@@ -1,6 +1,6 @@
 <?php
 /**
- * Testimonial Carousel Block.
+ * Quote Block.
  */
 
 $bg_color = get_sub_field('center_text_background_colour');
