@@ -19,6 +19,27 @@
         font-weight: 400;
         margin: 0 0 35px;
     }
+
+    &__content {
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+
+            .gallery-item {
+                float: none;
+                margin: 0 0 1rem !important;
+                padding: 0 0.5rem;
+
+                img {
+                    border: 0 !important;
+                }
+            }
+
+            p {
+                display: none;
+            }
+        }
+    }
 }
 
 

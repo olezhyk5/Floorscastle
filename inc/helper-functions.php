@@ -213,3 +213,98 @@ function flc_get_locations() {
 
     return $list;
 }
+
+/**
+ * Comparison shortcode.
+ *
+ * @return string
+ */
+function flc_comparison_shortcode() {
+    $comparison_shortcode_content = get_field('comparison_shortcode_content', 'option');
+    $comparison_shortcode_links = get_field('comparison_shortcode_links', 'option');
+
+    $html = '';
+
+    if ( ! empty( $comparison_shortcode_content ) ) :
+        $html .= '<div class="table-responsive">
+            <table class="table flc-comparison">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Seasonal Grounds
+                        Pass
+                    </th>
+                    <th>Castle Gardens &
+                        Grounds Day Pass
+                    </th>
+                    <th>Castle Gardens &
+                        Grounds Day Pass
+                    </th>
+                    <th>Historic House
+                        Membership
+                    </th>
+                    <th>Annual Pass</th>
+                </tr>
+                </thead>
+
+                <tbody>';
+
+                foreach ( $comparison_shortcode_content as $item ) :
+                    $html .= '<tr>
+                        <td>' . esc_html( $item['title'] ) . '</td>';
+
+                        $html .= '<td>';
+                            if ( in_array( 'a', $item['type_selection'] ) ) :
+                                $html .= '<span class="table-check"><img src="' . get_template_directory_uri() . '/assets/img/icon-check.png' . '">
+                                </span>';
+                            endif;
+                        $html .= '</td>';
+
+                        $html .= '<td>';
+                            if ( in_array( 'b', $item['type_selection'] ) ) :
+                                $html .= '<span class="table-check"><img src="' . get_template_directory_uri() . '/assets/img/icon-check.png' . '">
+                                        </span>';
+                            endif;
+                        $html .= '</td>';
+
+                        $html .= '<td>';
+                            if ( in_array( 'c', $item['type_selection'] ) ) :
+                                $html .= '<span class="table-check"><img src="' . get_template_directory_uri() . '/assets/img/icon-check.png' . '">
+                                        </span>';
+                            endif;
+                        $html .= '</td>';
+
+                        $html .= '<td>';
+                            if ( in_array( 'd', $item['type_selection'] ) ) :
+                                $html .= '<span class="table-check"><img src="' . get_template_directory_uri() . '/assets/img/icon-check.png' . '">
+                                        </span>';
+                            endif;
+                        $html .= '</td>';
+
+                        $html .= '<td>';
+                            if ( in_array( 'e', $item['type_selection'] ) ) :
+                                $html .= '<span class="table-check"><img src="' . get_template_directory_uri() . '/assets/img/icon-check.png' . '">
+                                        </span>';
+                            endif;
+                        $html .= '</td>';
+                    $html .= '</tr>';
+                endforeach;
+
+                $html .= '<tr>
+                    <td></td>';
+
+                    foreach ( $comparison_shortcode_links as $elem ) :
+                        $html .= '<td>Find Out More
+                            <span>or</span>
+                            <a href="' . esc_url( $elem['link']['url'] ) . '" class="flc-btn flc-btn-main">' . esc_html( $elem['link']['title'] ) . '</a>
+                        </td>';
+                    endforeach;
+                $html .= '</tr>
+                </tbody>
+            </table>
+        </div>';
+    endif;
+
+    return $html;
+}
+add_shortcode( 'flc_comparison', 'flc_comparison_shortcode' );

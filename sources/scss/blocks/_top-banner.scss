@@ -54,16 +54,14 @@
     }
 
     .flc-breadcrumb {
+        padding: 0;
+        background-color: transparent;
+
         .rank-math-breadcrumb {
             a, span {
                 color: $white-color;
             }
         }
-    }
-
-    .flc-breadcrumb {
-        padding: 0;
-        background-color: transparent;
 
         &__list {
             &-item {

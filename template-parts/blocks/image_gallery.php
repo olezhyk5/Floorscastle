@@ -7,7 +7,6 @@ $bg_color = get_sub_field('center_text_background_colour');
 $bg_color = flc_get_bg_color($bg_color);
 $image_gallery_title = get_sub_field('image_gallery_title');
 $image_gallery_gallery = get_sub_field('image_gallery_gallery');
-$image_gallery_buttons = get_sub_field('image_gallery_buttons');
 
 if ( ! empty( $image_gallery_gallery ) ) : ?>
     <div id="nov-block-<?php echo get_row_index(); ?>" class="flc-gallery gallery-block" <?php echo $bg_color; ?>>

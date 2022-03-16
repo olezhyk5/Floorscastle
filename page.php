@@ -3,6 +3,10 @@
  * Single page template
  */
 
+$form_title = get_field('form_title', 'option');
+$form_subtitle = get_field('form_subtitle', 'option');
+$form_id = get_field('form_id', 'option');
+
 get_header();
 
 if ( have_posts() ) :
@@ -31,6 +35,16 @@ if ( have_posts() ) :
                     </div>
                 </div>
             </div>
+        <?php endif;
+
+        if ( ! is_front_page() && ! empty( $form_title ) && ! empty( $form_subtitle ) && ! empty( $form_id ) ): ?>
+            <?php
+            $args = array(
+                'form_title' => $form_title,
+                'form_subtitle' => $form_subtitle,
+                'form_id' => $form_id,
+            );
+            get_template_part('template-parts/newsletter-form', null, $args); ?>
         <?php endif;
     endwhile;
 endif;

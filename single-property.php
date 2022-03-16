@@ -31,19 +31,22 @@ if ( have_posts() ) :
 				<div class="flc-title page_title">
 					<div class="row w-100 justify-content-center">
 						<div class="col-xl-6 col-lg-8 col-sm-10">
-							<h1 class="flc-title__main"><?php the_title() ?></h1>
+							<?php the_title('<h1 class="flc-title__main">', '</h1>') ?>
+
 							<?php if ( ! empty( $price ) ): ?>
 								<p class="flc-title__sub"><?php echo $price; ?></p>
-							<?php endif ?>
+							<?php endif; ?>
+
 							<div class="flc-title__divide">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.png" alt="icon">
 							</div>
 						</div>
 					</div>
 				</div>
+
 				<?php if ( has_post_thumbnail() ): ?>
 					<div class="flc-page__image">
-						<img src="<?php echo the_post_thumbnail_url() ?>" alt="<?php the_title(); ?>" class="w-100">
+						<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="w-100">
 					</div>
 				<?php endif ?>
 

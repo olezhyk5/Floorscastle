@@ -4,7 +4,7 @@
  */
 
 $categories = get_terms('product_cat', [
-    'hide_empty' => false,
+    'hide_empty' => true,
 ]);
 
 ?>

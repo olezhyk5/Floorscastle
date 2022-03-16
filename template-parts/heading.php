@@ -42,13 +42,18 @@ if ( $height === 'large' ) : ?>
 
                 <h1 class="flc-main-banner__title"><?php echo esc_html( $page_title ); ?></h1>
 
-                <div class="d-flex justify-content-center align-items-center flc-main-banner__btns">
-                    <a href="#" title="View Events" class="flc-btn flc-btn-border-light">View Events</a>
-                    <a href="#" title="Book Tickets" class="flc-btn flc-btn-secondary">Book Tickets</a>
-                </div>
+                <?php if ( ! empty( $buttons ) ) : ?>
+                    <div class="d-flex justify-content-center align-items-center flc-main-banner__btns">
+                        <?php foreach ( $buttons as $key => $button ) : ?>
+                            <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-secondary' : 'flc-btn-border-light'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
 
                 <?php if ( isset( $breadcrumbs ) && $breadcrumbs ) : ?>
-                    <?php rank_math_the_breadcrumbs(); ?>
+                    <div class="flc-breadcrumb">
+                        <?php rank_math_the_breadcrumbs(); ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -77,7 +82,9 @@ if ( $height === 'large' ) : ?>
                 <h1 class="flc-top-banner__title"><?php echo esc_html( $page_title ); ?></h1>
 
                 <?php if ( isset( $breadcrumbs ) && $breadcrumbs ) : ?>
-                    <?php rank_math_the_breadcrumbs(); ?>
+                    <div class="flc-breadcrumb">
+                        <?php rank_math_the_breadcrumbs(); ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>

@@ -8,7 +8,7 @@ $blocks = get_sub_field('blocks');
 
 <div id="nov-block-<?php echo get_row_index(); ?>" class="d-flex flc-card card_map">
     <?php foreach ( $blocks as $block ) :
-        $bg_color = $block['5050_background_colour'];
+        $bg_color = $block['center_text_background_colour'];
         $bg_color = flc_get_bg_color($bg_color);
         $pre_heading = $block['5050_pre_heading'];
         $title = $block['5050_title'];
@@ -21,7 +21,7 @@ $blocks = get_sub_field('blocks');
         $subtext = $block['subtext'];
 
         if ( $block['5050_type'] === 'testimonial' ) : ?>
-            <div class="col-md-6 flc-card__col bg-main" <?php echo $bg_color; ?>>
+            <div class="col-md-6 flc-card__col" <?php echo $bg_color; ?>>
                 <div class="flc-card__content text-center flc-col-quote">
 					<span class="flc-col-quote__icon">
 						<img src="<?php echo get_template_directory_uri() . '/assets/img/quote.png'; ?>" alt="icon">
@@ -41,9 +41,37 @@ $blocks = get_sub_field('blocks');
                 </div>
             </div>
         <?php elseif( $block['5050_type'] === 'image_cta' ) : ?>
+            <div class="col-lg-6 flc-card__col">
+                <div class="flc-col-price">
+                    <?php if ( ! empty( $image ) ) : ?>
+                        <img src="<?php echo esc_url( $image['url'] ); ?>" class="flc-col-price__image" alt="image">
+                    <?php endif; ?>
 
+                    <div class="flc-col-price__block">
+                        <div class="flc-col-price__block-wrap">
+                            <?php if ( ! empty( $title ) ) : ?>
+                                <h2 class="flc-col-price__block-value"><?php echo wp_kses_post( $title ); ?></h2>
+                            <?php endif; ?>
+
+                            <?php if ( ! empty( $subtitle ) ) : ?>
+                                <h5 class="flc-col-price__block-subtext"><?php echo esc_html( $subtitle ); ?></h5>
+                            <?php endif; ?>
+
+                            <?php if ( ! empty( $buttons ) ) : ?>
+                                <?php foreach ( $buttons as $button ) : ?>
+                                    <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border-light <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+
+                            <?php if ( ! empty( $subtext ) ) : ?>
+                                <div class="flc-col-price__bottom-text"><?php echo esc_html( $subtext ); ?></div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <?php elseif( $block['5050_type'] === 'cta' ) : ?>
-            <div class="col-md-6 flc-card__col bg-gray" <?php echo $bg_color; ?>>
+            <div class="col-md-6 flc-card__col" <?php echo $bg_color; ?>>
                 <div class="flc-card__content text-center flc-col-content">
 
                     <?php if ( ! empty( $pre_heading ) ) : ?>
@@ -64,8 +92,8 @@ $blocks = get_sub_field('blocks');
 
                     <?php if ( ! empty( $buttons ) ) : ?>
                         <div class="d-flex align-items-center justify-content-center">
-                            <?php foreach ( $buttons as $button ) : ?>
-                                <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                            <?php foreach ( $buttons as $key => $button ) : ?>
+                                <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-main' : 'flc-btn-border'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
                             <?php endforeach; ?>
                         </div>
                     <?php endif; ?>
@@ -80,7 +108,7 @@ $blocks = get_sub_field('blocks');
                 <?php endif; ?>
             </div>
         <?php else : ?>
-            <div class="col-lg-6 flc-card__col bg-gray-secondary" <?php echo $bg_color; ?>>
+            <div class="col-lg-6 flc-card__col" <?php echo $bg_color; ?>>
                 <div class="flc-card__content flc-col-info">
                     <?php if ( ! empty( $title ) ) : ?>
                         <h2 class="flc-col-info__title"><?php echo esc_html( $title ); ?></h2>

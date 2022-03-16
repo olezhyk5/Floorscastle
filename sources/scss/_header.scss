@@ -5,11 +5,10 @@
 
     &.show-menu {
         @media (max-width: 991px) {
+            @include full-screen();
             position: fixed;
             top: 0;
             left: 0;
-            height: 100%;
-            width: 100%;
             z-index: 100;
 
             #{$header}__wrap {
@@ -65,7 +64,7 @@
     }
 
     &__top {
-        max-width: 1400px;
+        max-width: 1920px;
         margin: auto;
 
         padding: 20px 0;
@@ -185,7 +184,7 @@
     }
 
     &__wrap {
-        max-width: 1400px;
+        max-width: 1920px;
         margin: auto;
         
         display: flex;
