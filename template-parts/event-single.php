@@ -1,6 +1,9 @@
 <?php
 $ticket_link 		 = get_field('ticket_link');
 $subtitle 			 = get_field('subtitle');
+$price 			 	 = get_field('price');
+$time 			 	 = get_field('time');
+$valid_tickets 		 = get_field('valid_tickets');
 $custom_date_text 	 = get_field('custom_date_text');
 $start_date_of_event = get_field('start_date_of_event');
 $timestamp = flc_data_to_time($start_date_of_event);
@@ -16,24 +19,27 @@ $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_
 
 				<div class="d-flex align-items-center justify-content-between flc-event__info">
 					<div class="d-flex align-items-center">
-						<div class="flc-event__pop-up">
-							<div class="flc-event__pop-up-icon"></div>
-							<div class="flc-event__pop-up-block">
-								<span>300</span>
+						<?php if ( ! empty( $valid_tickets ) ): ?>
+							<div class="flc-event__pop-up">
+								<div class="flc-event__pop-up-icon" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="<?php echo implode(' / ', $valid_tickets); ?>">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/svgs/ticket-type.svg" alt="ticket type">
+								</div>
 							</div>
-						</div>
-						<div class="flc-event__pop-up">
-							<div class="flc-event__pop-up-icon"></div>
-							<div class="flc-event__pop-up-block">
-								<span>9.00 - 17.00</span>
+						<?php endif ?>
+						<?php if ( ! empty( $time ) ): ?>
+							<div class="flc-event__pop-up">
+								<div class="flc-event__pop-up-icon" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="<?php echo $time; ?>">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/svgs/event-time.svg" alt="time">
+								</div>
 							</div>
-						</div>
-						<div class="flc-event__pop-up">
-							<div class="flc-event__pop-up-icon"></div>
-							<div class="flc-event__pop-up-block">
-								<span>200-400</span>
+						<?php endif ?>
+						<?php if ( ! empty( $price ) ): ?>
+							<div class="flc-event__pop-up">
+								<div class="flc-event__pop-up-icon" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="<?php echo $price; ?>">
+									<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/svgs/event-price.svg" alt="price">
+								</div>
 							</div>
-						</div>
+						<?php endif ?>
 					</div>
 					<p>
 						<?php if ( $timestamp > time() ): ?>

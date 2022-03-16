@@ -58,8 +58,7 @@ add_filter( 'human_time_diff', 'flc_human_time_diff', 10, 4 );
 function flc_pre_get_posts($query) {
     // Events archive
     if ( ! is_admin() && $query->is_main_query() && in_array( $query->get('post_type'), array('events') ) ) {
-    // if ( ! is_admin() && $query->is_main_query() && is_archive('events') ) {
-        $query->set( 'posts_per_page', 3 );
+        $query->set( 'posts_per_page', 9 );
         $meta_query = array(
             array(
                 'key'     => 'end_date_of_event',
@@ -77,6 +76,13 @@ function flc_pre_get_posts($query) {
         $query->set('meta_key', 'start_date_of_event');
         $query->set('orderby', 'meta_value_num');
     }
+
+    // Property archive
+    if ( ! is_admin() && $query->is_main_query() && in_array( $query->get('post_type'), array('property') ) ) {
+        $query->set( 'posts_per_page', 3 );
+        $query->set( 'orderby', 'ID' );
+        $query->set( 'order', 'DESC' );
+    }
 }
 add_action( 'pre_get_posts', 'flc_pre_get_posts' );
 
@@ -91,7 +97,7 @@ function flc_load_more_events() {
 
     $args = array(
         'post_type'      => 'events',
-        'posts_per_page' => 3,
+        'posts_per_page' => 9,
         'paged'          => isset( $_POST['page'] ) && is_numeric( $_POST['page'] ) ? $_POST['page'] : 1,
         'order'          => 'ASC',
         'meta_key'       => 'start_date_of_event',
@@ -130,7 +136,7 @@ function flc_load_more_events() {
         while ( $e_query->have_posts() ) {
             $e_query->the_post(); 
         
-            get_template_part('template-parts/event-single');
+            get_template_part('template-parts/event-single', null, array('is_ajax' => 'yes'));
         }
         $result['html'] = ob_get_clean();
         wp_reset_postdata();
@@ -143,9 +149,47 @@ add_action('wp_ajax_flc_load_more_events', 'flc_load_more_events');
 add_action('wp_ajax_nopriv_flc_load_more_events', 'flc_load_more_events');
 
 
+function flc_load_more_properties() {
+    $result = array(
+        'html' => '',
+        'found_posts' => 0,
+        'args' => 0,
+        'max_num_pages' => 0
+    );
+
+    $args = array(
+        'post_type'      => 'property',
+        'orderby'        => 'ID',
+        'order'          => 'DESC',
+        'posts_per_page' => 3,
+        'paged'          => isset( $_POST['page'] ) && is_numeric( $_POST['page'] ) ? $_POST['page'] : 1,
+    );
+
+    $e_query = new WP_Query( $args );
+
+        $result['args'] = $e_query;
+    if ( $e_query->have_posts() ) {
+        ob_start();
+
+        while ( $e_query->have_posts() ) {
+            $e_query->the_post(); 
+            get_template_part('template-parts/property-single', null, array('is_ajax' => 'yes'));
+        }
+
+        $result['html'] = ob_get_clean();
+        wp_reset_postdata();
+    }
+
+    echo json_encode($result);
+    die();
+}
+add_action('wp_ajax_flc_load_more_properties', 'flc_load_more_properties');
+add_action('wp_ajax_nopriv_flc_load_more_properties', 'flc_load_more_properties');
+
+
 function flc_get_locations() {
     $list = array();
-    if ( is_archive('property')) {
+    if ( is_archive('property') ) {
         $args = array(
             'post_type'      => 'property',
             'posts_per_page' => -1

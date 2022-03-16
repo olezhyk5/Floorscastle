@@ -68,10 +68,20 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 	});
 
 	// popovers
-	var popovers = document.querySelector('[data-bs-toggle="popover"]');
-	if ( popovers !== null ) {
-		new bootstrap.Popover(popovers, {
-			container: 'body'
+	var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+	var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+		return new bootstrap.Popover(popoverTriggerEl,{
+			container: 'body',
+			trigger: 'hover'
+		});
+	});
+	
+
+	function show_loaded(parent_selector) {
+		$(parent_selector).find('.ajax-loaded').each(function(i) {
+			setTimeout(function(el) {
+	            el.addClass('active');
+	        }, i * 200, $(this));
 		});
 	}
 
@@ -139,9 +149,63 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 						}
 
 						$wrapper.append(result.html);
+						show_loaded('.js-load-more-events-container');
 					}
 				});
 			}
+		}
+	}
+
+	// Load more properties
+	if ( $('.js-load-more-properties').length ) {
+		var can_be_loaded = true,
+		    current_page = 2,
+		    observer = new IntersectionObserver(scroll_handler_properties),
+		    buttons  = document.querySelectorAll('.js-load-more-properties'),
+		    $button = $('.js-load-more-properties'),
+		    total_pages = parseInt($button.attr('data-pages')),
+		    $wrapper = $('.js-load-more-properties-container');
+
+		function scroll_handler_properties(entries, observer) {
+			entries.forEach(entry => {
+			    if (entry.isIntersecting && can_be_loaded) {
+			    	load_properties();
+			    }
+			});
+		}
+
+		buttons.forEach(button => {
+	    	observer.observe(button);
+	    });
+
+		function load_properties() {
+			$.ajax({
+				url: fc_object.ajax_url,
+				data: {
+					'action': 'flc_load_more_properties',
+					'page': current_page,
+				},
+				type: 'POST',
+				beforeSend: function( xhr ){
+					can_be_loaded = false; 
+					$button.show();
+				},
+				success:function(data){
+					var result = JSON.parse(data);
+
+					current_page++;
+
+					if ( current_page > total_pages ) {
+						$button.hide();
+					} else {
+						can_be_loaded = true;
+					}
+
+					$wrapper.append(result.html);
+
+					show_loaded('.js-load-more-properties-container');
+				}
+			});
 		}
 	}
 
@@ -201,8 +265,8 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 		    });
 
 	        var content = '<b>' + locations[n]['title'] + '</b><br>' + 
-	            	locations[n]['location']['address'] + '<br>' + 
-	            	'<a href="' + locations[n]['link'] + '">View property</a>';
+	            	locations[n]['location']['address'] + '<br>';// + 
+	            	//'<a href="' + locations[n]['link'] + '">View property</a>';
 
 	        // Show info window when marker is clicked.
 	    	google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){ 

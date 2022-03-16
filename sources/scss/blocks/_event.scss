@@ -39,6 +39,10 @@
 
         #{$event}__image {
             height: 100%;
+
+            &:after {
+                display: none;
+            }
         }
 
         #{$event}__content {
@@ -160,7 +164,7 @@
             height: 240px;
         }
 
-        img {
+        > img {
             width: 100%;
             height: 100%;
             position: absolute;
@@ -204,14 +208,27 @@
 
     &__pop-up {
         position: relative;
-
+        margin-right: 11px;
+        cursor: pointer;
+        
         &-icon {
+            img {
+                display: block;
+                height: 24px;
+                width: auto;
+            }
         }
 
         &-block {
             position: absolute;
             opacity: 0;
             transition: all 0.25s;
+        }
+
+        &:last-child {
+            img {
+                max-height: 18px;
+            }
         }
     }
 

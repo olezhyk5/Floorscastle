@@ -374,15 +374,25 @@ body {
         color: $text-light-color;
     }
 
-    .popover-arrow {
-        bottom: -0.5rem;
-        
-        &:before {
-            border-top-color: $brand-primary;
+    &[data-popper-placement^=right] {
+        .popover-arrow {
+            &:after {
+                border-right-color: $brand-primary;
+            }
         }
+    }
 
-        &:after {
-            border-top-color: $brand-primary;
+    &[data-popper-placement^=top] {
+        .popover-arrow {
+            bottom: -0.5rem;
+            
+            &:before {
+                border-top-color: $brand-primary;
+            }
+
+            &:after {
+                border-top-color: $brand-primary;
+            }
         }
     }
 }
@@ -408,5 +418,16 @@ body {
         &:hover {
             text-decoration: none;
         }
+    }
+}
+
+.ajax-loaded {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.45s ease;
+
+    &.active {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

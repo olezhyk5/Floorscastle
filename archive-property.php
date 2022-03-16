@@ -3,6 +3,8 @@
  * Property template file
  */
 
+global $wp_query;
+
 $title_image  = get_field('property_title_image', 'option');
 $image_anchor = get_field('property_page_title_image_anchor', 'option');
 $subtitle 	  = get_field('property_subtitle', 'option');
@@ -63,31 +65,20 @@ get_header();
 			<?php endif ?>
 
 			<?php if ( have_posts() ) : ?>
-				<div class="row">
+				<div class="row js-load-more-properties-container">
 					<?php while ( have_posts() ) : the_post();
-						$price = get_field('price');
-						$short_description = get_field('short_description'); ?>
-						<div class="col-lg-4 col-sm-6">
-							<div class="flc-property-item">
-								<?php if ( has_post_thumbnail() ): ?>
-									<div class="flc-property-item__image">
-										<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-									</div>
-								<?php endif ?>
-								<a href="<?php the_permalink(); ?>" class="flc-property-item__title"><?php the_title(); ?></a>
-								<?php if ( ! empty( $price ) ): ?>
-									<div class="flc-property-item__price"><?php echo $price; ?></div>
-								<?php endif ?>
 
-								<?php if ( ! empty( $short_description ) ): ?>
-									<p class="flc-property-item__text"><?php echo $short_description; ?></p>
-								<?php endif ?>
-								<a href="<?php the_permalink(); ?>" class="flc-btn flc-btn-border">View Property</a>
-							</div>
-						</div>
-					<?php endwhile; ?>
-					
+						get_template_part('template-parts/property-single');
+						
+					endwhile; ?>
 				</div>
+
+				<?php if ( $wp_query->max_num_pages > 1 ): ?>
+					<div class="js-load-more-properties flc-event__loader" data-pages="<?php echo $wp_query->max_num_pages; ?>">
+						<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/loading.jpeg" alt="loader">
+					</div>
+				<?php endif ?>
+
 			<?php endif; ?>
 		</div>
 	</div>

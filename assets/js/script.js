@@ -71,11 +71,19 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
     }
   }); // popovers
 
-  var popovers = document.querySelector('[data-bs-toggle="popover"]');
+  var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+  var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl, {
+      container: 'body',
+      trigger: 'hover'
+    });
+  });
 
-  if (popovers !== null) {
-    new bootstrap.Popover(popovers, {
-      container: 'body'
+  function show_loaded(parent_selector) {
+    $(parent_selector).find('.ajax-loaded').each(function (i) {
+      setTimeout(function (el) {
+        el.addClass('active');
+      }, i * 200, $(this));
     });
   } // Load more events
 
@@ -116,6 +124,7 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
             }
 
             $wrapper.append(result.html);
+            show_loaded('.js-load-more-events-container');
           }
         });
       }
@@ -141,6 +150,56 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
       }, 600);
       can_be_loaded = true;
       load_events();
+    });
+  } // Load more properties
+
+
+  if ($('.js-load-more-properties').length) {
+    var scroll_handler_properties = function scroll_handler_properties(entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && can_be_loaded) {
+          load_properties();
+        }
+      });
+    };
+
+    var load_properties = function load_properties() {
+      $.ajax({
+        url: fc_object.ajax_url,
+        data: {
+          'action': 'flc_load_more_properties',
+          'page': current_page
+        },
+        type: 'POST',
+        beforeSend: function beforeSend(xhr) {
+          can_be_loaded = false;
+          $button.show();
+        },
+        success: function success(data) {
+          var result = JSON.parse(data);
+          current_page++;
+
+          if (current_page > total_pages) {
+            $button.hide();
+          } else {
+            can_be_loaded = true;
+          }
+
+          $wrapper.append(result.html);
+          show_loaded('.js-load-more-properties-container');
+        }
+      });
+    };
+
+    var can_be_loaded = true,
+        current_page = 2,
+        observer = new IntersectionObserver(scroll_handler_properties),
+        buttons = document.querySelectorAll('.js-load-more-properties'),
+        $button = $('.js-load-more-properties'),
+        total_pages = parseInt($button.attr('data-pages')),
+        $wrapper = $('.js-load-more-properties-container');
+    buttons.forEach(function (button) {
+      observer.observe(button);
     });
   }
 
@@ -189,7 +248,9 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
         },
         map: map
       });
-      var content = '<b>' + locations[n]['title'] + '</b><br>' + locations[n]['location']['address'] + '<br>' + '<a href="' + locations[n]['link'] + '">View property</a>'; // Show info window when marker is clicked.
+      var content = '<b>' + locations[n]['title'] + '</b><br>' + locations[n]['location']['address'] + '<br>'; // + 
+      //'<a href="' + locations[n]['link'] + '">View property</a>';
+      // Show info window when marker is clicked.
 
       google.maps.event.addListener(marker, 'click', function (marker, content, infowindow) {
         return function () {
