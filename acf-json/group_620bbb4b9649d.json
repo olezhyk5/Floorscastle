@@ -1792,6 +1792,44 @@
                     "display": "row",
                     "sub_fields": [
                         {
+                            "key": "field_6230c76b79000",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6230c77079001",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
                             "key": "field_620e3a27f78db",
                             "label": "Block Showing Upcoming Events",
                             "name": "",
@@ -2158,6 +2196,33 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                "layout_623115f1d4b57": {
+                    "key": "layout_623115f1d4b57",
+                    "name": "product_categories",
+                    "label": "Product Categories",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_62311612d4b58",
+                            "label": "Block Showing Product Categories",
+                            "name": "",
+                            "type": "message",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "new_lines": "wpautop",
+                            "esc_html": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             },
             "button_label": "Add Content Block",
@@ -2185,5 +2250,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647347583
+    "modified": 1647384107
 }
