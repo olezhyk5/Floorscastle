@@ -1,5 +1,5 @@
 <?php
-$ticket_link 		 = get_field('ticket_link');
+$iframe_url 		 = get_field('iframe_url');
 $subtitle 			 = get_field('subtitle');
 $price 			 	 = get_field('price');
 $time 			 	 = get_field('time');
@@ -7,6 +7,10 @@ $valid_tickets 		 = get_field('valid_tickets');
 $custom_date_text 	 = get_field('custom_date_text');
 $start_date_of_event = get_field('start_date_of_event');
 $timestamp = flc_data_to_time($start_date_of_event);
+
+$event_iframe_url = get_field('event_iframe_url', 'option');
+
+$ticket_link = ! empty( $iframe_url ) ? $iframe_url : $event_iframe_url;
 
 $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_event; ?>
 <div class="col-lg-4 col-sm-6">
@@ -57,9 +61,8 @@ $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_
 			<?php endif ?>
 			<div class="d-flex flc-event__footer">
 				<a href="<?php the_permalink(); ?>" title="Read more" class="flc-btn flc-btn-border"><?php esc_html_e('Read more', 'floors-castle'); ?></a>
-				<?php if ( ! empty( $ticket_link ) ): ?>
-					<a href="<?php echo $ticket_link; ?>" title="Book Tickets" class="flc-btn flc-btn-main"><?php esc_html_e('Book Tickets', 'floors-castle'); ?></a>
-				<?php endif ?>
+				
+				<a href="<?php echo $ticket_link; ?>" title="Book Tickets" class="flc-btn flc-btn-main"><?php esc_html_e('Book Tickets', 'floors-castle'); ?></a>
 			</div>
 		</div>
 	</div>
