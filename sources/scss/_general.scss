@@ -152,7 +152,8 @@ body {
     letter-spacing: 1px;
     border: 1px solid $brand-primary;
 
-    &:hover {
+    &:hover,
+    &:focus {
         text-decoration: none;
         color: $brand-primary;
         background-color: transparent;

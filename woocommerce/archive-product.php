@@ -59,7 +59,7 @@ do_action( 'woocommerce_before_main_content' );
 <div class="flc-shop">
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-lg-9">
                 <?php
                 if ( woocommerce_product_loop() ) { ?>
                     <div class="flc-shop__notice">
@@ -130,14 +130,14 @@ do_action( 'woocommerce_before_main_content' );
                 ?>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <?php
                 /**
                  * Hook: woocommerce_sidebar.
                  *
                  * @hooked woocommerce_get_sidebar - 10
                  */
-//                do_action( 'woocommerce_sidebar' );
+                do_action( 'woocommerce_sidebar' );
                 ?>
             </div>
         </div>

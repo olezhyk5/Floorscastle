@@ -33,3 +33,24 @@ function fc_after_theme_setup() {
     add_image_size( 'product-img', 380, 250, true );
 }
 add_action( 'after_setup_theme', 'fc_after_theme_setup' );
+
+/**
+ * Register widget area.
+ *
+ * @return void
+ */
+function flc_widgets_init() {
+
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Shop Sidebar', 'fc' ),
+            'id'            => 'shop-sidebar',
+            'description'   => esc_html__( 'Add widgets here to appear in your shop pages.', 'fc' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+}
+add_action( 'widgets_init', 'flc_widgets_init' );

@@ -120,7 +120,8 @@
             @extend %text-12;
             color: $text-light-color;
             text-transform: uppercase;
-            margin: 0 0 50px;
+            margin: 0 auto 50px;
+            width: fit-content;
 
             &:focus,
             &:active,

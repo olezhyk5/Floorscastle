@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Archive Product
- */
 remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 remove_action( 'woocommerce_before_main_content', 'WC_Structured_Data::generate_website_data()', 30 );
