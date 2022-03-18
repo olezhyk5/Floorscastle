@@ -167,6 +167,22 @@
             "maxlength": ""
         },
         {
+            "key": "field_623493afe213b",
+            "label": "iFrame URL",
+            "name": "event_iframe_url",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_620e49ba12c29",
             "label": "Property Archive",
             "name": "",
@@ -741,5 +757,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647466608
+    "modified": 1647612884
 }

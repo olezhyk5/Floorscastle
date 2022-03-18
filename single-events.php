@@ -17,7 +17,7 @@ $event_type_tooltip = get_field('event_type_tooltip');
 
 $cta_title = get_field('cta_title');
 $cta_subtitle = get_field('cta_subtitle');
-$ticket_link = get_field('ticket_link');
+$iframe_url = get_field('iframe_url');
 
 if ( empty( $event_type_tooltip ) ) {
     if ( trim($event_type) == 'External Event' ) {
@@ -30,6 +30,9 @@ if ( empty( $event_type_tooltip ) ) {
 $form_title = get_field('form_title', 'option');
 $form_subtitle = get_field('form_subtitle', 'option');
 $form_id = get_field('form_id', 'option');
+$event_iframe_url = get_field('event_iframe_url', 'option');
+
+$ticket_link = ! empty( $iframe_url ) ? $iframe_url : $event_iframe_url;
 
 $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_event;
 
@@ -116,6 +119,7 @@ if ( have_posts() ) :
                             <span>Tickets from:</span>
                             <?php echo $price; ?>
                         </div>
+
                         <a href="<?php echo esc_url( $ticket_link ); ?>" class="flc-btn flc-ticket__btn" title="Buy Online">Buy Online</a>
                     </div>
                 </div>
