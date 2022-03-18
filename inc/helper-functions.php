@@ -7,6 +7,21 @@ if ( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();	
 }
 
+/**
+ * Check if WooCommerce is activated
+ */
+if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+    function is_woocommerce_activated() {
+        if ( class_exists( 'woocommerce' ) ) { return true; } else { return false; }
+    }
+}
+
+/**
+ * ACF Goole Map API
+ *
+ * @param $api
+ * @return mixed
+ */
 function flc_acf_google_map_api( $api ){
     $api['key'] = get_field( 'google_maps_key', 'option' );
     return $api;

@@ -10,6 +10,10 @@ require_once get_theme_file_path( '/inc/custom-post-type.php' );
 require_once get_theme_file_path( '/inc/action-config.php' );
 require_once get_theme_file_path( '/inc/helper-functions.php' );
 
+if ( is_woocommerce_activated() ) {
+    require_once get_theme_file_path( '/inc/woocommerce-functions.php' );
+}
+
 function fc_after_theme_setup() {
 
     register_nav_menus(
@@ -24,6 +28,7 @@ function fc_after_theme_setup() {
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
+    add_theme_support( 'woocommerce' );
 
     add_image_size( 'product-img', 380, 250, true );
 }

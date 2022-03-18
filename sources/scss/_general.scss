@@ -136,7 +136,8 @@ body {
     width: max-content;
     display: block;
 
-    &:hover {
+    &:hover,
+    &:focus {
         text-decoration: none;
     }
 }
