@@ -63,6 +63,29 @@
 
 .woocommerce,
 .woocommerce-page {
+    .woocommerce-Message {
+        background-color: $white-color;
+        font-size: 16px;
+        color: $text-light-gray-color;
+
+        a.flc-btn {
+            color: $white-color;
+            float: right;
+
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+
+        &.woocommerce-info {
+            border-top-color: $brand-primary;
+
+            &::before {
+                color: $brand-primary;
+            }
+        }
+    }
+
     // Archive Page
     .woocommerce-result-count,
     .woocommerce-ordering {
@@ -237,14 +260,17 @@
     }
 
     // Checkout Page
-    form.woocommerce-checkout {
+    form.woocommerce-checkout,
+    form.edit-account,
+    form.edit-address-form {
         margin-bottom: 100px;
 
         @media screen and (max-width: 767px) {
             margin-bottom: 50px;
         }
 
-        h3 {
+        h3,
+        legend {
             font-family: $font-family-crimson-pro;
             font-size: 36px;
             color: $brand-primary;
@@ -254,6 +280,12 @@
                 margin-top: 70px;
                 margin-bottom: 25px;
             }
+        }
+
+        legend {
+            line-height: 1;
+            margin-top: 15px;
+            margin-bottom: 20px;
         }
 
         .form-row {
@@ -334,6 +366,12 @@
             list-style: none;
             margin-bottom: 15px;
 
+            &.is-active {
+                a {
+                    text-decoration: underline;
+                }
+            }
+
             a {
                 @extend %text-12;
                 color: $brand-primary;
@@ -354,8 +392,20 @@
             }
         }
 
-        a {
+        a:not(.flc-btn) {
             color: $brand-primary;
+        }
+
+        button[name="save_account_details"],
+        button[name="save_address"] {
+            margin-top: 20px;
+        }
+
+        h3 {
+            font-family: $font-family-crimson-pro;
+            font-size: 36px;
+            color: $brand-primary;
+            margin-bottom: 15px;
         }
     }
 }
