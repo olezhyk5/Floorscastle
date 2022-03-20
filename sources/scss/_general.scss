@@ -456,3 +456,21 @@ body {
         transform: translateY(0);
     }
 }
+
+.navigation.pagination {
+    span {
+        color: $brand-primary;
+        text-decoration: none;
+        padding: 4px 6px;
+    }
+
+    a {
+        color: $brand-primary;
+        text-decoration: underline;
+        padding: 4px 6px;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
