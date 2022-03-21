@@ -8,9 +8,14 @@
     }
 
     .acf-map {
-        min-height: 400px;
+        height: 630px;
+
+        @media (max-width: 991px) {
+            height: 400px;
+        }
+        
         @media (max-width: 575px) {
-            min-height: 250px;
+            height: 250px;
         }
     }
 }

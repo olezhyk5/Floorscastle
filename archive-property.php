@@ -54,7 +54,7 @@ get_header();
 								<h2 class="flc-title__main"><?php echo $subtitle; ?></h2>
 							<?php endif ?>
 							<?php if ( ! empty( $introduction ) ): ?>
-								<p class="flc-title__sub"><?php echo $introduction; ?></p>
+								<p class="flc-title__sub"><?php echo strip_tags($introduction); ?></p>
 							<?php endif ?>
 							<div class="flc-title__divide">
 								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.png" alt="icon">
