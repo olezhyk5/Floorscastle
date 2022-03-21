@@ -24,10 +24,10 @@
     &__content {
         position: relative;
         z-index: 3;
-        padding: 160px 0 190px;
+        padding: 270px 0 290px;
         text-align: center;
         @media (max-width: 1199px) {
-            padding: 120px 0 140px;
+            padding: 170px 0 200px;
         }
         @media (max-width: 991px) {
             padding: 90px 0 110px;
@@ -58,7 +58,7 @@
         @extend %h1;
         color: $white-color;
         font-weight: 400;
-        font-family: $font-family-crimson-pro;
+        font-family: $font-family-garamond;
         margin: 0 0 35px;
     }
 

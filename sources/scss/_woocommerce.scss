@@ -18,12 +18,6 @@
     padding-top: 60px;
     padding-bottom: 40px;
 
-    .container {
-        @media(min-width: 1630px) {
-            max-width: 1600px;
-        }
-    }
-
     &__list {
         display: flex;
         flex-wrap: wrap;
@@ -52,6 +46,9 @@
 
         .price {
             span {
+                font-family: $font-family-crimson-pro;
+                font-weight: 300;
+                font-style: italic;
                 font-size: 20px;
                 color: $brand-primary;
             }
@@ -62,7 +59,8 @@
                 font-family: $font-family-crimson-pro;
                 font-size: 24px;
                 color: $brand-primary;
-                margin-bottom: 15px;
+                line-height: 1;
+                margin-bottom: 10px;
             }
 
             &__link {
@@ -86,7 +84,7 @@
             font-weight: 400;
             font-size: 28px;
             color: $brand-primary;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
 
@@ -95,6 +93,10 @@
                 li {
                     border-bottom: 1px solid rgba($light-gray-с, .5);
                     padding: 20px 0;
+
+                    &:first-child {
+                        padding-top: 0;
+                    }
 
                     a.remove {
                         float: left;
@@ -226,10 +228,16 @@
 .woocommerce,
 .woocommerce-page {
     .woocommerce-Message,
-    .woocommerce-info {
-        background-color: $white-color;
+    .woocommerce-info,
+    .woocommerce-message {
+        background-color: $light-gray;
+        border-top-color: $brand-primary;
         font-size: 16px;
         color: $text-light-gray-color;
+
+        &::before {
+            color: $brand-primary;
+        }
 
         a.flc-btn {
             color: $white-color;
@@ -243,6 +251,7 @@
         .showcoupon {
             color: $brand-primary;
         }
+
 
         &.woocommerce-info {
             border-top-color: $brand-primary;
@@ -268,7 +277,7 @@
     .woocommerce-ordering {
         select {
             background-color: transparent;
-            border: 1px solid $text-light-gray-color;
+            border: 1px solid $light-gray-e;
             font-size: 16px;
             color: $text-light-gray-color;
             padding: 10px 12px;
@@ -343,6 +352,7 @@
         .woocommerce-product-details__short-description {
             font-size: 16px;
             color: $text-gray-color;
+            line-height: 1.75;
             margin-bottom: 40px;
         }
 
@@ -354,7 +364,8 @@
             margin-right: 10px !important;
 
             .qty {
-                border: 1px solid $text-light-gray-color;
+                background-color: $light-gray-b;
+                border: 1px solid $light-gray-e;
                 width: 55px;
                 height: 48px;
             }
@@ -419,6 +430,7 @@
                         font-size: 12px;
                         color: $brand-primary;
                         text-transform: uppercase;
+                        letter-spacing: 1.44px;
                         padding: 0 0 14px;
                     }
                 }
@@ -437,6 +449,7 @@
                 p {
                     font-size: 16px;
                     color: $text-gray-color;
+                    line-height: 1.75;
                 }
             }
         }
@@ -484,7 +497,7 @@
                 &:nth-child(2n) {
                     th,
                     td {
-                        background-color: transparent;
+                        background-color: $light-gray;
                     }
                 }
             }
@@ -522,7 +535,7 @@
             &.product-quantity {
                 input.qty {
                     background-color: transparent;
-                    border: 1px solid $text-light-gray-color;
+                    border: 1px solid $light-gray-e;
                 }
             }
         }
@@ -533,7 +546,7 @@
             .coupon {
                 input[name="coupon_code"] {
                     background-color: transparent;
-                    border-color: $text-light-gray-color;
+                    border-color: $light-gray-e;
                     font-size: 16px;
                     color: $text-light-gray-color;
                     padding: 8px 15px;
@@ -582,7 +595,7 @@
             margin-bottom: 0;
 
             tr {
-                border-bottom: 1px solid rgba($light-gray-с, .5);
+                border-bottom: 1px solid $light-gray-d;
             }
 
             th,
@@ -644,6 +657,11 @@
             }
         }
 
+        #order_review {
+            background-color: $light-gray;
+            border: 1px solid $light-gray-d;
+        }
+
         legend {
             line-height: 1;
             margin-top: 15px;
@@ -660,14 +678,19 @@
                 font-style: italic;
                 font-size: 19px;
                 color: $text-gray-color;
+                line-height: 1;
                 margin-bottom: 10px;
+
+                .required {
+                    color: $text-gray-color;
+                }
             }
 
             input,
             textarea,
             .select2-selection {
                 background-color: transparent;
-                border: 1px solid $text-light-gray-color;
+                border: 1px solid $light-gray-e;
                 font-size: 16px;
                 color: $text-light-gray-color;
                 padding: 11px 15px;

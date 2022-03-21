@@ -29,7 +29,7 @@ if ( have_posts() ) :
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container container--large">
                 <?php the_content(); ?>
             </div>
         <?php else :

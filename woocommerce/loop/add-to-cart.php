@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-$classes = str_replace( 'button', 'flc-btn flc-btn-main', $args['class'] );
+$classes = str_replace( 'button', 'flc-btn flc-btn-main flc-btn-main-small', $args['class'] );
 
 global $product;
 
@@ -29,7 +29,7 @@ echo apply_filters(
         '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
         esc_url( $product->add_to_cart_url() ),
         esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
-        esc_attr( isset( $args['class'] ) ? $classes : 'flc-btn flc-btn-main' ),
+        esc_attr( isset( $args['class'] ) ? $classes : 'flc-btn flc-btn-main flc-btn-main-small' ),
         isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
         esc_html( $product->add_to_cart_text() )
     ),

@@ -57,7 +57,7 @@ do_action( 'woocommerce_before_main_content' );
 </div>
 
 <div class="flc-shop">
-    <div class="container">
+    <div class="container container--large">
         <div class="row">
             <div class="col-lg-9">
                 <?php

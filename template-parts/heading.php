@@ -35,27 +35,25 @@ if ( $height === 'large' ) : ?>
 
     <div class="flc-main-banner__content">
         <div class="container">
-            <div class="flc-main-banner__content">
-                <?php if ( ! empty( $page_subtitle ) ) : ?>
-                    <h4 class="flc-main-banner__subtitle"><?php echo esc_html( $page_subtitle ); ?></h4>
-                <?php endif; ?>
+            <?php if ( ! empty( $page_subtitle ) ) : ?>
+                <h4 class="flc-main-banner__subtitle"><?php echo esc_html( $page_subtitle ); ?></h4>
+            <?php endif; ?>
 
-                <h1 class="flc-main-banner__title"><?php echo esc_html( $page_title ); ?></h1>
+            <h1 class="flc-main-banner__title"><?php echo esc_html( $page_title ); ?></h1>
 
-                <?php if ( ! empty( $buttons ) ) : ?>
-                    <div class="d-flex justify-content-center align-items-center flc-main-banner__btns">
-                        <?php foreach ( $buttons as $key => $button ) : ?>
-                            <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-secondary' : 'flc-btn-border-light'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
-                        <?php endforeach; ?>
-                    </div>
-                <?php endif; ?>
+            <?php if ( ! empty( $buttons ) ) : ?>
+                <div class="d-flex justify-content-center align-items-center flc-main-banner__btns">
+                    <?php foreach ( $buttons as $key => $button ) : ?>
+                        <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-secondary' : 'flc-btn-border-white'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
-                <?php if ( isset( $breadcrumbs ) && $breadcrumbs ) : ?>
-                    <div class="flc-breadcrumb">
-                        <?php rank_math_the_breadcrumbs(); ?>
-                    </div>
-                <?php endif; ?>
-            </div>
+            <?php if ( isset( $breadcrumbs ) && $breadcrumbs ) : ?>
+                <div class="flc-breadcrumb">
+                    <?php rank_math_the_breadcrumbs(); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>

@@ -54,7 +54,7 @@ $fancy_text_image_2 = get_sub_field('fancy_text_image_2');
                 <?php endif; ?>
 
                 <?php if ( ! empty( $fancy_text_button ) ) : ?>
-                    <a href="<?php echo esc_url( $fancy_text_button['url'] ); ?>" class="flc-btn flc-btn-border"><?php echo esc_html( $fancy_text_button['title'] ); ?></a>
+                    <a href="<?php echo esc_url( $fancy_text_button['url'] ); ?>" class="flc-btn flc-btn-border flc-btn-border-large"><?php echo esc_html( $fancy_text_button['title'] ); ?></a>
                 <?php endif; ?>
             </div>
 
@@ -69,7 +69,7 @@ $fancy_text_image_2 = get_sub_field('fancy_text_image_2');
 
                         <?php if ( ! empty( $fancy_text_image_2 ) ) : ?>
                             <div class="flc-about__image-small">
-                                <img src="<?php echo wp_get_attachment_image_url( $fancy_text_image_2, 'medium' ); ?>" alt="image">
+                                <img src="<?php echo wp_get_attachment_image_url( $fancy_text_image_2, 'product-img' ); ?>" alt="image">
                             </div>
                         <?php endif; ?>
                     </div>

@@ -5,6 +5,11 @@
         margin-bottom: 20px;
     }
 
+    .col-md-4 {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
     &__item {
         margin-bottom: 30px;
 
@@ -16,19 +21,19 @@
 
         &-content {
             border: 1px solid $brand-primary;
-            padding: 32px;
+            padding: 26px;
         }
 
         &-title,
         &-text {
             font-family: $font-family-crimson-pro;
             color: $brand-primary;
-            margin-bottom: 30px;
         }
 
         &-title {
             font-size: 32px;
             line-height: 1;
+            margin-bottom: 22px;
         }
 
         &-text {
@@ -36,6 +41,7 @@
             font-style: italic;
             font-size: 22px;
             line-height: 1.2;
+            margin-bottom: 30px;
         }
     }
 }

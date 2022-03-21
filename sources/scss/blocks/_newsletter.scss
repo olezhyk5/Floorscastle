@@ -142,14 +142,14 @@
                         border-radius: 0;
                         border: none;
                         font-size: 19px;
-                        line-height: 1.2;
+                        line-height: 1;
                         font-family: $font-family-crimson-pro;
                         font-style: italic;
                         background-color: transparent;
                         width: 100%;
                         border-bottom: 1px solid $text-light-gray-color;
                         transition: all 0.25s;
-                        padding: 10px 5px;
+                        padding: 12.5px 5px;
                         color: $brand-primary;
 
                         &::placeholder {
@@ -182,7 +182,7 @@
                 color: $text-light-color;
                 font-size: 13px;
                 line-height: 17px;
-                padding: 15px 30px;
+                padding: 14px 30px;
                 background-color: $brand-primary;
                 border: 1px solid $brand-primary;
                 text-transform: uppercase;

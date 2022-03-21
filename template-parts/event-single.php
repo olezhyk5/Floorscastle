@@ -57,7 +57,7 @@ $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_
 			<time class="flc-event__date"><?php echo $start_date; ?></time>
 			<?php the_title('<a href="' . get_the_permalink() . '" class="flc-event__title">', '</a>'); ?>
 			<?php if ( ! empty( $subtitle ) ): ?>
-				<p class="flc-event__text"><?php echo $subtitle; ?></p>
+				<div class="flc-event__text"><?php echo $subtitle; ?></div>
 			<?php endif ?>
 			<div class="d-flex flc-event__footer">
 				<a href="<?php the_permalink(); ?>" title="Read more" class="flc-btn flc-btn-border"><?php esc_html_e('Read more', 'floors-castle'); ?></a>

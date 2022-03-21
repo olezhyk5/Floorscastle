@@ -9,7 +9,7 @@ $center_text_title = get_sub_field('center_text_title');
 $center_text_text = get_sub_field('center_text_text');
 ?>
 
-<div id="nov-block-<?php echo get_row_index(); ?>" class="flc-page" <?php echo $bg_color; ?>>
+<div id="nov-block-<?php echo get_row_index(); ?>" class="flc-page flc-page--small" <?php echo $bg_color; ?>>
     <div class="container">
         <div class="flc-title mb-0">
             <div class="row w-100 justify-content-center">

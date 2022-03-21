@@ -55,10 +55,10 @@
             display: block;
             @extend %text-12;
             text-transform: uppercase;
-            color: $text-light-color;
+            color: rgba($text-light-color, .6);
             transition: all 0.25s;
             text-decoration: none;
-            letter-spacing: 0.5px;
+            letter-spacing: 1.44px;
             position: relative;
             @media(max-width: 575px) {
                font-size: 10px;
@@ -118,7 +118,8 @@
             display: block;
             text-align: center;
             @extend %text-12;
-            color: $text-light-color;
+            color: rgba($text-light-color, .6);
+            letter-spacing: 1.44px;
             text-transform: uppercase;
             margin: 0 auto 50px;
             width: fit-content;
@@ -153,8 +154,8 @@
         p {
             @extend %text-12;
             text-transform: uppercase;
-            color: $text-light-color;
-            letter-spacing: 0.5px;
+            color: rgba($text-light-color, .6);
+            letter-spacing: 1.44px;
             margin: 0;
             @media(max-width: 575px) {
                 font-size: 10px;
@@ -193,8 +194,8 @@
                 position: relative;
                 @extend %text-12;
                 text-transform: uppercase;
-                color: $text-light-color;
-                letter-spacing: 0.5px;
+                color: rgba($text-light-color, .6);
+                letter-spacing: 1.44px;
                 @media(max-width: 575px) {
                     font-size: 10px;
                 }

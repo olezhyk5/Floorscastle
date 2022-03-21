@@ -309,9 +309,7 @@ function flc_comparison_shortcode() {
                     <td></td>';
 
                     foreach ( $comparison_shortcode_links as $elem ) :
-                        $html .= '<td>Find Out More
-                            <span>or</span>
-                            <a href="' . esc_url( $elem['link']['url'] ) . '" class="flc-btn flc-btn-main">' . esc_html( $elem['link']['title'] ) . '</a>
+                        $html .= '<td>Find Out More<span>or</span><a href="' . esc_url( $elem['link']['url'] ) . '" class="flc-btn flc-btn-main">' . esc_html( $elem['link']['title'] ) . '</a>
                         </td>';
                     endforeach;
                 $html .= '</tr>

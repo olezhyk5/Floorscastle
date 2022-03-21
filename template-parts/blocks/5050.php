@@ -59,7 +59,7 @@ $blocks = get_sub_field('blocks');
 
                             <?php if ( ! empty( $buttons ) ) : ?>
                                 <?php foreach ( $buttons as $button ) : ?>
-                                    <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border-light <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                                    <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border-white <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
                                 <?php endforeach; ?>
                             <?php endif; ?>
 

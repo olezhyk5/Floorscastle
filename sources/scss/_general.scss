@@ -8,6 +8,12 @@ body {
     @media(min-width: 1400px) {
         max-width: 1210px;
     }
+
+    &--large {
+        @media(min-width: 1630px) {
+            max-width: 1600px;
+        }
+    }
 }
 
 .bg-gray {
@@ -29,11 +35,24 @@ body {
 
 .flc-page {
     padding: 80px 0 100px;
+
+    &--small {
+        padding-bottom: 50px;
+    }
+
     @media (max-width: 991px) {
         padding: 60px 0 80px;
+
+        &--small {
+            padding-bottom: 50px;
+        }
     }
     @media (max-width: 575px) {
         padding: 50px 0 60px;
+
+        &--small {
+            padding-bottom: 50px;
+        }
     }
 
     &__image {
@@ -171,7 +190,7 @@ body {
     line-height: 17px;
     padding: 15px 30px;
     background-color: $brand-primary;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     border: 1px solid $brand-primary;
 
     &:hover,
@@ -182,22 +201,42 @@ body {
     }
 }
 
+.flc-btn-main-small {
+    font-size: 12px;
+    padding: 13px 22px;
+}
+
+.flc-btn-main-light {
+    background-color: $beige-color;
+    color: $brand-primary;
+
+    &:hover {
+        background-color: $white-color;
+    }
+}
+
 .flc-btn-border {
     color: $brand-primary;
-    border: 1px solid $brand-primary;
+    border: 1px solid rgba($brand-primary, .7);
     background-color: transparent;
     @extend %text-12;
     text-transform: uppercase;
     line-height: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 10px 15px;
 
     &:focus,
     &:hover {
         background-color: $brand-primary;
+        border-color: $brand-primary;
         color: $text-light-color;
         text-decoration: none;
     }
+}
+
+.flc-btn-border-large {
+    font-size: 13px;
+    padding: 12.5px 30.5px;
 }
 
 .flc-btn-border-light {
@@ -207,7 +246,23 @@ body {
     @extend %text-12;
     text-transform: uppercase;
     line-height: 20px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: $beige-color;
+        color: $brand-primary;
+    }
+}
+
+.flc-btn-border-white {
+    color: $white-color;
+    border: 1px solid rgba($white-color, .7);
+    background-color: transparent;
+    @extend %text-12;
+    text-transform: uppercase;
+    line-height: 20px;
+    letter-spacing: 2px;
     padding: 10px 15px;
 
     &:hover {
@@ -221,15 +276,16 @@ body {
     border: 1px solid $beige-color;
     background-color: $beige-color;
     @extend %text-12;
+    font-size: 13px;
     text-transform: uppercase;
     line-height: 20px;
-    letter-spacing: 1px;
-    padding: 10px 15px;
+    letter-spacing: 2px;
+    padding: 13px 25px;
 
     &:hover {
-        border-color: $brand-primary;;
-        background-color: $brand-primary;
-        color: $beige-color;
+        border-color: $white-color;
+        background-color: $white-color;
+        color: $brand-primary;
     }
 }
 
@@ -278,12 +334,13 @@ body {
         justify-content: center;
         text-decoration: none;
         border-radius: 50%;
-        border: 1px solid $text-light-color;
-        width: 56px;
-        height: 56px;
+        border: 1px solid rgba($text-light-color, .6);
+        width: 52px;
+        height: 52px;
         margin: 0 5px;
         cursor: pointer;
         transition: all 0.25s;
+
         @media(max-width: 575px) {
             width: 50px;
             height: 50px;
@@ -293,7 +350,7 @@ body {
             max-height: 20px;
 
             path {
-                fill: $white-color;
+                fill: $text-light-color;
                 transition: all 0.25s;
             }
         }
@@ -313,16 +370,17 @@ body {
     border: none;
 
     &__item {
-        padding: 0;
+        background-color: transparent;
         border: none !important;
+        border-radius: 0;
         @extend %text-12;
         color: $brand-primary;
-        text-transform: uppercase;
-        position: relative;
-        margin-right: 40px;
-        border-radius: 0;
-        padding-bottom: 3px;
         letter-spacing: 1px;
+        text-transform: uppercase;
+        padding: 0 0 3px;
+        margin-right: 40px;
+        position: relative;
+
         @media (max-width: 991px) {
             margin: 0 15px 15px;
             margin-bottom: 15px !important;
@@ -361,6 +419,7 @@ body {
         }
 
         &.active {
+            background-color: transparent !important;
             border: none;
 
             &:after {

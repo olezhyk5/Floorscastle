@@ -65,7 +65,7 @@ if ( $style === 'style_2' ) : ?>
                                         <?php if ( ! empty( $ticket['buttons'] ) ) : ?>
                                             <div class="d-flex align-items-center flc-ticket-item__footer">
                                                 <?php foreach ( $ticket['buttons'] as $key => $button ) : ?>
-                                                    <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-main' : 'flc-btn-border'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                                                    <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-main flc-btn-main-light' : 'flc-btn-border-white'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
                                                 <?php endforeach; ?>
                                             </div>
                                         <?php endif; ?>
@@ -91,7 +91,7 @@ if ( $style === 'style_2' ) : ?>
                                     </div>
                                 <?php endif; ?>
 
-                                <div class="flc-ticket-item__body">
+                                <div class="flc-ticket-item__body <?php echo ! empty( $ticket['tickets_image'] ) ? 'flc-ticket-item__body--no-bt' : ''; ?>">
                                     <h3 class="flc-ticket-item__title"><?php echo esc_html( $ticket['tickets_title'] ); ?></h3>
                                     <h6 class="flc-ticket-item__subtitle"><?php echo esc_html( $ticket['tickets_subtitle'] ); ?></h6>
                                     <div class="flc-ticket-item__text"><?php echo wp_kses_post( $ticket['tickets_description'] ); ?></div>
@@ -156,8 +156,8 @@ if ( $style === 'style_2' ) : ?>
 
                                 <?php if ( ! empty( $ticket['buttons'] ) ) : ?>
                                     <div class="d-flex align-items-center flc-ticket-item__footer">
-                                        <?php foreach ( $ticket['buttons'] as $button ) : ?>
-                                            <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                                        <?php foreach ( $ticket['buttons'] as $s_key => $button ) : ?>
+                                            <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $s_key === 1 ? 'flc-btn-main' : 'flc-btn-border'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
                                         <?php endforeach; ?>
                                     </div>
                                 <?php endif; ?>

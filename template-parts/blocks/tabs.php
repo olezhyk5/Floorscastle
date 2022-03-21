@@ -9,8 +9,8 @@ $tabs_repeater = get_sub_field('tabs_repeater');
 
 <div id="nov-block-<?php echo get_row_index(); ?>" class="flc-info">
     <div class="container">
-        <?php if ( ! empty( $quote_quote ) ) : ?>
-            <h2 class="text-center flc-info__title"><?php echo wp_kses_post( $quote_quote ); ?></h2>
+        <?php if ( ! empty( $tabs_title ) ) : ?>
+            <h2 class="text-center flc-info__title"><?php echo wp_kses_post( $tabs_title ); ?></h2>
         <?php endif; ?>
 
         <div class="nav nav-tabs d-flex justify-content-center flc-tabs" id="nav-tab" role="tablist">

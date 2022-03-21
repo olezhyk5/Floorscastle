@@ -178,11 +178,11 @@ a {
         outline: none;
     }
     
-    &:hover,
-    &:focus {
-        color: #2775ff;
-        text-decoration: underline;
-    }
+    //&:hover,
+    //&:focus {
+    //    color: #2775ff;
+    //    text-decoration: underline;
+    //}
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {

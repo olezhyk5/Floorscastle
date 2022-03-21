@@ -45,8 +45,7 @@ $copyright_text = get_field('copyright_text', 'option');
                 <div class="d-flex flc-soc">
                     <?php if ( ! empty( $facebook ) ): ?>
                         <a href="<?php echo $facebook; ?>" class="flc-soc__item" rel="nofollow" target="_blank">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                <title>facebook</title>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <g>
                                     <path d="M360.7,284.1l12.5-81.4h-78.1v-52.8c0-22.3,10.9-44,45.9-44h35.5V36.5c0,0-32.2-5.5-63.1-5.5C249.1,31,207,70,207,140.6v62.1h-71.5v81.4H207V481h88V284.1H360.7z" />
                                 </g>
@@ -56,7 +55,6 @@ $copyright_text = get_field('copyright_text', 'option');
                     <?php if ( ! empty( $instagram ) ): ?>
                         <a href="<?php echo $instagram; ?>" class="flc-soc__item" rel="nofollow" target="_blank">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <title>instagram</title>
                                 <path d="M17.626 1.5h-11.252c-2.691 0.003-4.871 2.183-4.874 4.874v11.252c0.003 2.691 2.183 4.871 4.874 4.874h11.252c2.691-0.003 4.871-2.183 4.874-4.874v-11.252c-0.003-2.691-2.183-4.871-4.874-4.874h-0zM21 17.626c0 1.863-1.511 3.374-3.374 3.374h-11.252c-1.863 0-3.374-1.511-3.374-3.374v0-11.252c0-1.863 1.511-3.374 3.374-3.374h11.252c1.863 0 3.374 1.511 3.374 3.374v0z"></path>
                                 <path d="M12 6.75c-3.107 0-5.625 2.518-5.625 5.625s2.518 5.625 5.625 5.625c3.107 0 5.625-2.518 5.625-5.625 0-1.553-0.63-2.96-1.648-3.977v0c-1.012-1.018-2.414-1.648-3.962-1.648-0.005 0-0.011 0-0.016 0h0.001zM12 16.5c-2.278 0-4.125-1.847-4.125-4.125s1.847-4.125 4.125-4.125c2.278 0 4.125 1.847 4.125 4.125v0c0 2.278-1.847 4.125-4.125 4.125v0z"></path>
                                 <path d="M19.5 6c0 0.828-0.672 1.5-1.5 1.5s-1.5-0.672-1.5-1.5c0-0.828 0.672-1.5 1.5-1.5s1.5 0.672 1.5 1.5z"></path>
@@ -65,8 +63,7 @@ $copyright_text = get_field('copyright_text', 'option');
                     <?php endif ?>
                     <?php if ( ! empty( $twitter ) ): ?>
                         <a href="<?php echo $twitter; ?>" class="flc-soc__item" rel="nofollow" target="_blank">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                                <title>twitter</title>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                                 <g>
                                     <path d="M434.7,164.3c0.3,4,0.3,8,0.3,12c0,121.9-92.8,262.4-262.4,262.4c-52.3,0-100.8-15.1-141.6-41.4c7.4,0.9,14.6,1.1,22.3,1.1
                                     c43.1,0,82.8-14.6,114.5-39.4c-40.5-0.9-74.5-27.4-86.2-64c5.7,0.9,11.4,1.4,17.4,1.4c8.3,0,16.6-1.1,24.3-3.1
@@ -80,8 +77,7 @@ $copyright_text = get_field('copyright_text', 'option');
                     <?php endif ?>
                     <?php if ( ! empty( $tripadvisor ) ): ?>
                         <a href="<?php echo $tripadvisor; ?>" class="flc-soc__item" rel="nofollow" target="_blank">
-                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
-                                <title>tripadvisor</title>
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve">
                                 <path d="M30.7,12.7c0.4-1.6,1.6-3.2,1.6-3.2h-5.3c-3-1.9-6.6-3-10.7-3c-4.2,0-8,1-11,3h-5c0,0,1.2,1.6,1.6,3.2c-1,1.3-1.6,3-1.6,4.7
                                 c0,4.4,3.6,8,8,8c2.5,0,4.8-1.2,6.2-3l1.7,2.6l1.7-2.6c0.8,1,1.8,1.8,2.9,2.3c1.9,0.9,4.1,1,6.1,0.2c4.1-1.5,6.3-6.2,4.7-10.3
                                 C31.5,13.9,31.1,13.3,30.7,12.7L30.7,12.7z M26.5,23.5c-1.6,0.6-3.3,0.5-4.9-0.2c-1.1-0.5-2-1.3-2.7-2.3c-0.3-0.4-0.5-0.8-0.7-1.3
