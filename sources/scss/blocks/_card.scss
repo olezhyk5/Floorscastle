@@ -42,6 +42,32 @@
 }
 
 .flc-col-content {
+    $p: &;
+
+    &--white {
+        padding: 165px 20px;
+        position: relative;
+        z-index: 1;
+
+        @media screen and (max-width: 991px) {
+            padding: 75px 20px;
+        }
+
+        #{$p}__top-title,
+        #{$p}__title,
+        #{$p}__subtitle,
+        #{$p}__text {
+            color: $white-color;
+        }
+
+        #{$p}__text {
+            font-family: $font-family-crimson-pro;
+            font-weight: 300;
+            font-style: italic;
+            font-size: 24px;
+        }
+    }
+
     &__top-title {
         font-size: 18px;
         color: $brand-primary;

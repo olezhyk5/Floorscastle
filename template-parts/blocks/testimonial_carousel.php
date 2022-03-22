@@ -45,7 +45,7 @@ if ( $testimonial_query->have_posts() ) : ?>
 
                     <?php if ( isset( $testimonial_tripadvisor ) && $testimonial_tripadvisor ) : ?>
                         <div class="flc-reviews__header-icon">
-                            <img src="<?php echo get_template_directory_uri() . '/assets/img/trip-advisor.png'; ?>" alt="icon">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/advisor-logo.png'; ?>" alt="icon">
                         </div>
                     <?php endif; ?>
                 </div>

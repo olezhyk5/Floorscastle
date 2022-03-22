@@ -24,6 +24,11 @@ var vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
 
 (function ($) {
+  // Lightbox gallery
+  if ($('.gallery').length) {
+    $('.gallery-item').find('a').attr('data-lightbox', 'gallery');
+  }
+
   _lightbox.default.option({
     'resizeDuration': 200,
     'wrapAround': true

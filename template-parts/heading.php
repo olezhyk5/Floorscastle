@@ -17,7 +17,7 @@ $buttons = get_field('buttons');
 
 if ( $height === 'large' ) : ?>
 <div class="flc-main-banner">
-    <div class="flc-top-banner__overlay" style="background-color: rgba(0,0,0, <?php echo $page_title_overlay; ?>);"></div>
+    <div class="flc-top-banner__overlay" style="background-color: rgba(17,17,17, <?php echo $page_title_overlay; ?>);"></div>
 
     <div class="flc-main-banner__bg">
         <?php if ( $page_title_type === 'video' ) : ?>
@@ -59,7 +59,7 @@ if ( $height === 'large' ) : ?>
 </div>
 <?php else : ?>
     <div class="flc-top-banner">
-        <div class="flc-top-banner__overlay" style="background-color: rgba(0,0,0, <?php echo $page_title_overlay; ?>);"></div>
+        <div class="flc-top-banner__overlay" style="background-color: rgba(17,17,17, <?php echo $page_title_overlay; ?>);"></div>
 
         <div class="flc-top-banner__bg">
             <?php if ( $page_title_type === 'video' ) : ?>

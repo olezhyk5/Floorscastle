@@ -23,7 +23,7 @@ if ( have_posts() ) :
                         <?php the_title('<h2 class="flc-title__main">', '</h2>'); ?>
 
                         <div class="flc-title__divide">
-                            <img src="<?php echo get_template_directory_uri() . '/assets/img/divide.png'; ?>" alt="icon">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/img/divide.svg'; ?>" alt="icon">
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@ if ( have_posts() ) :
                                     <?php the_title('<h1 class="flc-title__main">', '</h1>') ?>
 
                                     <div class="flc-title__divide">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.png" alt="icon">
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.svg" alt="icon">
                                     </div>
                                 </div>
                             </div>

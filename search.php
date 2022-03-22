@@ -21,7 +21,7 @@ get_header();
 						<h1 class="flc-title__main"><?php _e( 'Search Results Found For', 'floors-castle' ); ?>: "<?php the_search_query(); ?>"</h1>
 
 						<div class="flc-title__divide">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.png" alt="icon">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.svg" alt="icon">
 						</div>
 					</div>
 				</div>

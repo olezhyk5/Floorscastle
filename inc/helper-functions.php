@@ -73,7 +73,7 @@ add_filter( 'human_time_diff', 'flc_human_time_diff', 10, 4 );
 function flc_pre_get_posts($query) {
     // Events archive
     if ( ! is_admin() && $query->is_main_query() && in_array( $query->get('post_type'), array('events') ) ) {
-        $query->set( 'posts_per_page', 9 );
+        $query->set( 'posts_per_page', 6 );
         $meta_query = array(
             array(
                 'key'     => 'end_date_of_event',

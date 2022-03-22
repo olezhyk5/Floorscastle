@@ -1222,7 +1222,7 @@
                         {
                             "key": "field_620e327307642",
                             "label": "Pre-heading",
-                            "name": "cta_pre-heading",
+                            "name": "cta_pre_heading",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -1299,7 +1299,7 @@
                             "key": "field_620e327307646",
                             "label": "Buttons",
                             "name": "cta_buttons",
-                            "type": "wysiwyg",
+                            "type": "clone",
                             "instructions": "",
                             "required": 0,
                             "conditional_logic": 0,
@@ -1308,11 +1308,13 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "default_value": "",
-                            "tabs": "all",
-                            "toolbar": "full",
-                            "media_upload": 1,
-                            "delay": 0
+                            "clone": [
+                                "field_620bbe24ef53a"
+                            ],
+                            "display": "seamless",
+                            "layout": "block",
+                            "prefix_label": 0,
+                            "prefix_name": 0
                         },
                         {
                             "key": "field_620e327307647",
@@ -1623,9 +1625,9 @@
                                 },
                                 {
                                     "key": "field_620e354e0765c",
-                                    "label": "Button Text",
-                                    "name": "page_links_button_text",
-                                    "type": "text",
+                                    "label": "Button",
+                                    "name": "page_links_button",
+                                    "type": "link",
                                     "instructions": "By default \"View Page\" will be used.",
                                     "required": 0,
                                     "conditional_logic": 0,
@@ -1634,11 +1636,7 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "maxlength": ""
+                                    "return_format": "array"
                                 }
                             ]
                         }
@@ -2541,5 +2539,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647462822
+    "modified": 1647979664
 }

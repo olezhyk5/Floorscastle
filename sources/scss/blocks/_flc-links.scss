@@ -1,0 +1,42 @@
+.flc-links {
+    padding: 80px 0 50px;
+
+    @media screen and (max-width: 767px) {
+        padding: 50px 0;
+    }
+
+    &__title {
+        @extend %h2;
+        font-family: $font-family-garamond;
+        color: $brand-primary;
+        text-align: center;
+        margin: 0 0 45px;
+    }
+
+    &__item {
+        margin-bottom: 30px;
+
+        &-img {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 255px;
+        }
+
+        &-content {
+            background-color: $text-light-color;
+            padding: 25px;
+        }
+
+        &-title {
+            font-family: $font-family-crimson-pro;
+            font-size: 24px;
+            color: $brand-primary;
+            margin-bottom: 20px;
+        }
+
+        &-text {
+            margin-bottom: 30px;
+        }
+    }
+}

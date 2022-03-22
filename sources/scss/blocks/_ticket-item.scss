@@ -17,7 +17,14 @@
             margin-bottom: 30px;
         }
 
+        @media screen and (min-width: 768px) {
+            #{$item}__image {
+                clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+            }
+        }
+
         #{$item}__header {
+            background-color: $brand-primary;
             height: 100%;
             width: 50%;
             flex-shrink: 0;
@@ -166,12 +173,8 @@
             flex-shrink: 0;
             width: 50%;
 
-            &::after {
-                //content: '';
-                //background-color: $white-color;
-                //width: 30px;
-                //border-bottom: 100px solid $white-color;
-                //border-left: 100px solid transparent;
+            @media screen and (min-width: 768px) {
+                clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
             }
 
             @media (max-width: 767px) {

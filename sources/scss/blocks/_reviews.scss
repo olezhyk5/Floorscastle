@@ -91,7 +91,6 @@
         }
         @media (max-width: 767px) {
             margin-bottom: 40px;
-            padding: 0 30px;
         }
     }
 
@@ -119,7 +118,7 @@
             margin: 0 0 30px;
             color: #f8f7f4;
             @media (max-width: 767px) {
-                font-size: 18px;
+                font-size: 24px;
             }
             @media (max-width: 575px) {
                 margin-bottom: 25px;
@@ -149,6 +148,10 @@
             width: 20px;
             height: 26px;
             z-index: 10;
+
+            @media screen and (max-width: 767px) {
+                display: none;
+            }
 
             &:focus, &:active {
                 outline: none;

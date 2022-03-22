@@ -22,7 +22,7 @@ $shortcode = get_sub_field('shortcode');
                     <?php endif; ?>
 
                     <div class="flc-title__divide">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/divide.png'; ?>" alt="icon">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/divide.svg'; ?>" alt="icon">
                     </div>
                 </div>
             </div>

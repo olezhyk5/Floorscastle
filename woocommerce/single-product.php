@@ -38,7 +38,7 @@ do_action( 'woocommerce_before_main_content' );
 <div class="flc-shop-product">
     <div class="container container--large">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-lg-9">
                 <?php while ( have_posts() ) : ?>
                     <?php the_post(); ?>
 
@@ -47,7 +47,7 @@ do_action( 'woocommerce_before_main_content' );
                 <?php endwhile; // end of the loop. ?>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <?php
                 /**
                  * woocommerce_sidebar hook.

@@ -76,7 +76,7 @@ get_header();
 						<h2 class="flc-title__main"><?php echo $events_subtitle; ?></h2>
 						<p class="flc-title__sub"><?php echo strip_tags($events_introduction); ?></p>
 						<div class="flc-title__divide">
-							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.png" alt="icon">
+							<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.svg" alt="icon">
 						</div>
 					</div>
 				</div>

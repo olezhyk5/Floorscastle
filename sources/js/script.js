@@ -18,6 +18,11 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 (function ($) {
 
+	// Lightbox gallery
+	if ( $('.gallery').length ) {
+		$('.gallery-item').find('a').attr('data-lightbox', 'gallery');
+	}
+
 	lightbox.option({
 		'resizeDuration': 200,
 		'wrapAround': true
@@ -75,7 +80,6 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 			trigger: 'hover'
 		});
 	});
-	
 
 	function show_loaded(parent_selector) {
 		$(parent_selector).find('.ajax-loaded').each(function(i) {

@@ -38,7 +38,7 @@ if ( have_posts() ) :
 							<?php endif; ?>
 
 							<div class="flc-title__divide">
-								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.png" alt="icon">
+								<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/divide.svg" alt="icon">
 							</div>
 						</div>
 					</div>

@@ -23,7 +23,7 @@ $center_text_text = get_sub_field('center_text_text');
                     <?php endif; ?>
 
                     <div class="flc-title__divide">
-                        <img src="<?php echo get_template_directory_uri() . '/assets/img/divide.png'; ?>" alt="icon">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/img/divide.svg'; ?>" alt="icon">
                     </div>
                 </div>
             </div>
