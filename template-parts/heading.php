@@ -12,6 +12,7 @@ $page_title_image = get_field('page_title_image');
 $page_title_video = get_field('page_title_video');
 $page_title_anchor = get_field('page_title_anchor');
 $page_title_overlay = get_field('page_title_overlay');
+$page_title_overlay = ! empty( $page_title_overlay ) ? $page_title_overlay : 0.2;
 $height = get_field('height');
 $buttons = get_field('buttons');
 

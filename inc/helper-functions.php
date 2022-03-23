@@ -94,7 +94,7 @@ function flc_pre_get_posts($query) {
 
     // Property archive
     if ( ! is_admin() && $query->is_main_query() && in_array( $query->get('post_type'), array('property') ) ) {
-        $query->set( 'posts_per_page', 3 );
+        $query->set( 'posts_per_page', 6 );
         $query->set( 'orderby', 'ID' );
         $query->set( 'order', 'DESC' );
     }
@@ -112,7 +112,7 @@ function flc_load_more_events() {
 
     $args = array(
         'post_type'      => 'events',
-        'posts_per_page' => 9,
+        'posts_per_page' => 6,
         'paged'          => isset( $_POST['page'] ) && is_numeric( $_POST['page'] ) ? $_POST['page'] : 1,
         'order'          => 'ASC',
         'meta_key'       => 'start_date_of_event',
@@ -176,7 +176,7 @@ function flc_load_more_properties() {
         'post_type'      => 'property',
         'orderby'        => 'ID',
         'order'          => 'DESC',
-        'posts_per_page' => 3,
+        'posts_per_page' => 6,
         'paged'          => isset( $_POST['page'] ) && is_numeric( $_POST['page'] ) ? $_POST['page'] : 1,
     );
 

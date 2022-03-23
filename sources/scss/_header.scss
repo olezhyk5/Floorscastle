@@ -193,11 +193,12 @@
     }
 
     &__lang {
-        width: 160px;
+        width: 170px;
         position: relative;
 
         select {
             padding-left: 10px;
+            padding-right: 10px;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -226,7 +227,7 @@
             border-right: 1px solid $text-light-color;
             border-bottom: 1px solid $text-light-color;
             position: absolute;
-            right: 0;
+            right: 10px;
             top: 4px;
             transform: rotate(45deg);
         }

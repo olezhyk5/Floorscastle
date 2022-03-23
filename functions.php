@@ -29,6 +29,8 @@ function fc_after_theme_setup() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'woocommerce' );
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support('wc-product-gallery-lightbox');
 
     add_image_size( 'product-img', 380, 250, true );
 }
