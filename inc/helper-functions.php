@@ -321,3 +321,23 @@ function flc_comparison_shortcode() {
     return $html;
 }
 add_shortcode( 'flc_comparison', 'flc_comparison_shortcode' );
+
+/**
+ * nav menu object.
+ *
+ * @param $items
+ * @param $args
+ * @return mixed
+ */
+function flc_nav_menu_objects( $items, $args ) {
+    foreach( $items as &$item ) {
+        $mega_menu = get_field('mega_menu', $item);
+
+        if( isset( $mega_menu ) && $mega_menu !== 'on' ) {
+            $item->classes[] = 'menu-item--single';
+        }
+    }
+
+    return $items;
+}
+add_filter('wp_nav_menu_objects', 'flc_nav_menu_objects', 10, 2);

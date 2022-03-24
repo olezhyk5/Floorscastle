@@ -35,7 +35,6 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
             </div>
         </div>
         <div class="flc-header__wrap">
-
             <div class="d-lg-block d-none flc-header__lang">
                 <?php echo do_shortcode('[gtranslate]'); ?>
             </div>
@@ -46,14 +45,23 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
                         'container'      => '',
                         'items_wrap'     => '<ul class="flc-header__menu">%3$s</ul>',
                         'theme_location' => 'main-menu',
-                        'depth'          => 1,
+                        'depth'          => 3,
                         'fallback_cb'    => '__return_empty_string',
+                        'walker'         => new FLC_Walker_Nav_Menu()
                     )
                 ); ?>
+
+                <div class="flc-header__info d-lg-none">
+                    <div class="flc-header__lang">
+                        <?php echo do_shortcode('[gtranslate]'); ?>
+                    </div>
+
+                    <a target="<?php echo esc_attr( $link_target ); ?>" href="<?php echo $booking_button['url']; ?>" class="flc-btn flc-btn-secondary" title="Book Tickets"><?php echo $booking_button['title'] ?></a>
+                </div>
             </nav>
 
-            <a target="<?php echo esc_attr( $link_target ); ?>" href="<?php echo $booking_button['url']; ?>" class="flc-btn flc-btn-secondary" title="Book Tickets"><?php echo $booking_button['title'] ?></a>
-            
+            <a target="<?php echo esc_attr( $link_target ); ?>" href="<?php echo $booking_button['url']; ?>" class="flc-btn flc-btn-secondary d-lg-block d-none" title="Book Tickets"><?php echo $booking_button['title'] ?></a>
+
             <div class="d-lg-none d-flex flc-header__burger">
                 <span></span>
                 <span></span>

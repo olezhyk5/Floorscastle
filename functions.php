@@ -6,6 +6,7 @@
  * @since 1.0
  */
 
+require_once get_theme_file_path( '/inc/menu-walker.php' );
 require_once get_theme_file_path( '/inc/custom-post-type.php' );
 require_once get_theme_file_path( '/inc/action-config.php' );
 require_once get_theme_file_path( '/inc/helper-functions.php' );

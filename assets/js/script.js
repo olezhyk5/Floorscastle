@@ -323,6 +323,11 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
   });
   $('.acf-map-list').each(function () {
     var map = initMapList($(this));
+  }); // Show/Hide mobile submenu
+
+  $('.flc-header__arrow').on('click', function () {
+    $(this).toggleClass('active');
+    $(this).parent().find('.flc-header__megamenu, .sub-menu--single').toggle();
   });
 })(jQuery);
 
