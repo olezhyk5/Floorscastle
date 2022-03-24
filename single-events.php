@@ -30,9 +30,9 @@ if ( empty( $event_type_tooltip ) ) {
 $form_title = get_field('form_title', 'option');
 $form_subtitle = get_field('form_subtitle', 'option');
 $form_id = get_field('form_id', 'option');
-$event_iframe_url = get_field('event_iframe_url', 'option');
 
-$ticket_link = ! empty( $iframe_url ) ? $iframe_url : $event_iframe_url;
+$booking_page = site_url('/ticket-booking/');
+$ticket_link = $booking_page . '?event_id=' . get_the_ID();
 
 $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_event;
 

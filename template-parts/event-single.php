@@ -1,5 +1,4 @@
 <?php
-$iframe_url 		 = get_field('iframe_url');
 $subtitle 			 = get_field('subtitle');
 $price 			 	 = get_field('price');
 $time 			 	 = get_field('time');
@@ -8,9 +7,8 @@ $custom_date_text 	 = get_field('custom_date_text');
 $start_date_of_event = get_field('start_date_of_event');
 $timestamp = flc_data_to_time($start_date_of_event);
 
-$event_iframe_url = get_field('event_iframe_url', 'option');
-
-$ticket_link = ! empty( $iframe_url ) ? $iframe_url : $event_iframe_url;
+$booking_page = site_url('/ticket-booking/');
+$ticket_link = $booking_page . '?event_id=' . get_the_ID();
 
 $start_date = ! empty( $custom_date_text ) ? $custom_date_text : $start_date_of_event; ?>
 <div class="col-lg-4 col-sm-6">

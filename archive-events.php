@@ -22,7 +22,8 @@ if ( ! empty( $events_image_anchor ) ) {
 $form_title = get_field('form_title', 'option');
 $form_subtitle = get_field('form_subtitle', 'option');
 $form_id = get_field('form_id', 'option');
-$event_iframe_url = get_field('event_iframe_url', 'option');
+
+$booking_page = site_url('/ticket-booking/');
 
 $cats = get_terms( array(
 	'taxonomy' => 'event_categories',
@@ -103,8 +104,7 @@ get_header();
 						<?php while ( $f_query->have_posts() ) {
 							$f_query->the_post(); 
 
-							$iframe_url 		 = get_field('iframe_url');
-							$ticket_link = ! empty( $iframe_url ) ? $iframe_url : $event_iframe_url;
+							$ticket_link = $booking_page . '?event_id=' . get_the_ID();
 							$subtitle = get_field('subtitle');
 							$short_description = get_field('short_description');
 							$custom_date_text = get_field('custom_date_text');
