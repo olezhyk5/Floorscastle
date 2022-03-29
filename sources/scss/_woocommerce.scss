@@ -464,6 +464,7 @@
                     }
 
                     a {
+                        font-weight: 400;
                         font-size: 12px;
                         color: $brand-primary;
                         text-transform: uppercase;
@@ -651,6 +652,7 @@
 
         table.shop_table {
             background-color: $light-gray;
+            border: 1px solid $light-gray-d;
             margin-bottom: 0;
 
             tr {

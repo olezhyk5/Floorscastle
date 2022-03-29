@@ -19,13 +19,16 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 (function ($) {
 
 	// Lightbox gallery
-	if ( $('.gallery').length ) {
-		$('.gallery-item').find('a').attr('data-lightbox', 'gallery');
-	}
-
-	lightbox.option({
-		'resizeDuration': 200,
-		'wrapAround': true
+	$('.gallery, .flc-gallery').magnificPopup({
+		delegate: 'a',
+		type: 'image',
+		tLoading: 'Loading image #%curr%...',
+		mainClass: 'mfp-img-mobile',
+		gallery: {
+			enabled: true,
+			navigateByImgClick: true,
+			preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+		},
 	});
 
 	/*swiper reviews*/
@@ -90,7 +93,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 	}
 
 	// Load more events
-	if ( $('.js-load-more-events').length ) {
+	if ( $('.js-load-more-events-container').length ) {
 		var can_be_loaded = true,
 		    current_page = 2,
 		    category = 'all',

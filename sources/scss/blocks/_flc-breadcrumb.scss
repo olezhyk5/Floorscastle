@@ -78,5 +78,14 @@
                 margin-right: 0;
             }
         }
+
+        .separator {
+            background-image: url('../img/breadcrumb-separator.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+        }
     }
 }

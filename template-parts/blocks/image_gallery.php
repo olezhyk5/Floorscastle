@@ -18,7 +18,7 @@ if ( ! empty( $image_gallery_gallery ) ) : ?>
             <div class="row mx-n2">
                 <?php foreach ( $image_gallery_gallery as $item ) : ?>
                     <div class="col-lg-4 col-6 px-2 mb-3">
-                        <a href="<?php echo esc_url( $item['url'] ); ?>" class="flc-gallery__item" data-lightbox="gallery">
+                        <a href="<?php echo esc_url( $item['url'] ); ?>" class="flc-gallery__item">
                             <img src="<?php echo esc_url( $item['url'] ); ?>" alt="image">
                         </a>
                     </div>

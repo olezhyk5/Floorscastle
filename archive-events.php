@@ -27,7 +27,7 @@ $booking_page = site_url('/ticket-booking/');
 
 $cats = get_terms( array(
 	'taxonomy' => 'event_categories',
-	'hide_empty' => false,
+	'hide_empty' => true,
 ));
 
 $f_args = array(

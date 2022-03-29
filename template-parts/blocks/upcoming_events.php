@@ -4,7 +4,7 @@
  */
 
 $categories = get_terms('event_categories', [
-    'hide_empty' => false,
+    'hide_empty' => true,
 ]);
 
 $args = array(

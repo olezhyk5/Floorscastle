@@ -1,6 +1,7 @@
 .flc-instagram {
-    background-color: #f8f7f4;
+    background-color: $light-gray-b;
     padding: 95px 0 85px;
+
     @media (max-width: 991px) {
         padding: 70px 0;
     }
@@ -11,15 +12,29 @@
         padding: 50px 0;
     }
 
-    &__wrap {
-        //margin-bottom: 60px;
-        //@media (max-width: 991px) {
-        //    margin-bottom: 50px;
-        //}
-        //@media (max-width: 767px) {
-        //    margin-bottom: 40px;
-        //}
+    .MediaTile__overlay {
+        svg {
+            vertical-align: inherit !important;
+        }
+    }
 
+    .DesignedButton__button {
+        padding: 0;
+        position: relative;
+
+        &::before {
+            display: inline-block;
+            content: '';
+            background-image: url('../img/instagram-green.svg');
+            margin-right: 12px;
+            position: relative;
+            top: 3px;
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &__wrap {
         img {
             width: 100%;
         }

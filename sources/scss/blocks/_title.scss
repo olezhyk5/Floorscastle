@@ -96,7 +96,31 @@
     }
 
     &__divide {
-        height: 24px;
+        display: inline-block;
+        height: 26px;
+        width: 184px;
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background-color: $light-gray-с;
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+
+        &::after {
+            content: '';
+            width: 50px;
+            height: 1px;
+            background-color: $light-gray-с;
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+
         @media (max-width: 575px) {
             height: 20px;
         }

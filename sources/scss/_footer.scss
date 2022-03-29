@@ -123,10 +123,10 @@
             }
 
             @media(max-width: 991px) {
-                margin: 0 0 40px;
+                margin: 0 auto 40px;
             }
             @media(max-width: 767px) {
-                margin: 0 0 30px;
+                margin: 0 auto 30px;
             }
         }
     }
@@ -222,17 +222,26 @@
         @extend %text-12;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        color: $text-light-color;
+        color: rgba($text-light-color, .5);
         @media(max-width: 575px) {
             font-size: 10px;
         }
 
-        img {
-            height: 13px;
-            display: block;
-            flex-shrink: 0;
+        svg {
             margin-left: 5px;
-            margin-top: -2px;
+            position: relative;
+            top: -2px;
+
+            g {
+                fill: rgba($text-light-color, .5);
+                transition: fill .3s ease-out;
+            }
+
+            &:hover {
+                g {
+                    fill: $text-light-color;
+                }
+            }
         }
     }
 }

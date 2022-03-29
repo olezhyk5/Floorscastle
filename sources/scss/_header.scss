@@ -242,7 +242,7 @@
             border: none;
             width: 100%;
             display: block;
-            color: $text-light-color;
+            color: $light-gray-e;
             font-size: 13px;
             letter-spacing: 1.44px;
             text-transform: uppercase;
@@ -475,7 +475,7 @@
 
                     .menu-item {
                         display: flex;
-                        align-items: center;
+                        align-items: start;
                         list-style: none;
                         margin-bottom: 15px;
                         margin-right: 0;
@@ -487,8 +487,9 @@
                             background-image: url('../img/list-caret-white.svg');
                             background-position: center;
                             background-repeat: no-repeat;
+                            margin-top: 6px;
                             margin-right: 10px;
-                            width: 8px;
+                            width: 10px;
                             height: 9px;
                         }
 
@@ -498,7 +499,7 @@
 
                         a {
                             font-size: 16px;
-                            color: $white-color;
+                            color: $light-gray-b;
                             letter-spacing: 0;
                             text-transform: capitalize;
 

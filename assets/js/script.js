@@ -25,16 +25,19 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
 
 (function ($) {
   // Lightbox gallery
-  if ($('.gallery').length) {
-    $('.gallery-item').find('a').attr('data-lightbox', 'gallery');
-  }
+  $('.gallery, .flc-gallery').magnificPopup({
+    delegate: 'a',
+    type: 'image',
+    tLoading: 'Loading image #%curr%...',
+    mainClass: 'mfp-img-mobile',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
 
-  _lightbox.default.option({
-    'resizeDuration': 200,
-    'wrapAround': true
+    }
   });
   /*swiper reviews*/
-
 
   var swiper = new _swiperBundle.default('.flc-reviews-swiper', {
     slidesPerView: 1,
@@ -93,7 +96,7 @@ document.documentElement.style.setProperty('--vh', "".concat(vh, "px"));
   } // Load more events
 
 
-  if ($('.js-load-more-events').length) {
+  if ($('.js-load-more-events-container').length) {
     var scroll_handler = function scroll_handler(entries, observer) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {

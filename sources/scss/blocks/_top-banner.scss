@@ -61,6 +61,10 @@
             a, span {
                 color: $white-color;
             }
+
+            .separator {
+                background-image: url('../img/breadcrumb-separator-white.svg');
+            }
         }
 
         &__list {
