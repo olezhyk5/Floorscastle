@@ -9,7 +9,7 @@ $categories = get_terms('event_categories', [
 
 $args = array(
     'post_type'  => 'events',
-    'posts_per_page' => -1,
+    'posts_per_page' => 6,
     'order'      => 'ASC',
     'meta_query' => array(
         array(
@@ -47,20 +47,26 @@ if ( $events_query->have_posts() ) : ?>
             </div>
 
             <div class="nav nav-tabs d-flex justify-content-center flc-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link flc-tabs__item active" id="first-tab" data-bs-toggle="tab" data-bs-target="#first" type="button" role="tab" aria-controls="first" aria-selected="true">Show All
-                </button>
-
-                <?php foreach ( $categories as $key => $category ) : ?>
-                    <button class="nav-link flc-tabs__item" id="tab-<?php echo esc_attr( $key ); ?>" data-bs-toggle="tab" data-bs-target="#second" type="button" role="tab" aria-controls="second" aria-selected="false"><?php echo esc_html( $category->name ); ?></button>
-                <?php endforeach; ?>
+                <button class="nav-link flc-tabs__item active" id="all" data-bs-toggle="tab" data-bs-target="#first" type="button" role="tab" aria-controls="first" aria-selected="true">Show All</button>
+                <?php if ( ! empty( $categories ) ): ?>
+                    <?php foreach ($categories as $cat): ?>
+                        <button class="nav-link flc-tabs__item" id="<?php echo $cat->slug; ?>" data-bs-toggle="tab" data-bs-target="#<?php echo $cat->slug; ?>" type="button" role="tab" aria-controls="<?php echo $cat->slug; ?>" aria-selected="false"><?php echo $cat->name ?></button>
+                    <?php endforeach ?>
+                <?php endif ?>
             </div>
 
             <div class="tab-content flc-tabs__content" id="myTabContent">
-                <div class="row">
+                <div class="row js-load-more-events-container">
                     <?php while ( $events_query->have_posts() ) : $events_query->the_post(); ?>
                         <?php get_template_part('template-parts/event-single'); ?>
                     <?php endwhile; wp_reset_postdata(); ?>
                 </div>
+
+                <?php if ( $events_query->max_num_pages > 1 ): ?>
+                    <div class="js-load-more-events flc-event__loader" data-pages="<?php echo $events_query->max_num_pages; ?>">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/loading.jpeg" alt="loader">
+                    </div>
+                <?php endif ?>
             </div>
         </div>
     </div>
