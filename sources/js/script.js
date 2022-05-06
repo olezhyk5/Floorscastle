@@ -19,7 +19,7 @@ document.documentElement.style.setProperty('--vh', `${vh}px`);
 (function ($) {
 
 	// Lightbox gallery
-	$('.gallery, .flc-gallery').magnificPopup({
+	$('.gallery, .flc-gallery, .flc-info__gallery').magnificPopup({
 		delegate: 'a',
 		type: 'image',
 		tLoading: 'Loading image #%curr%...',

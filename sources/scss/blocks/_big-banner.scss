@@ -2,6 +2,7 @@
 
 .flc-main-banner {
     position: relative;
+    overflow: hidden;
 
     &__bg {
         position: absolute;
@@ -11,7 +12,8 @@
         height: 100%;
         z-index: 1;
 
-        img {
+        img,
+        video {
             position: absolute;
             top: 0;
             left: 0;

@@ -5,6 +5,10 @@
         padding: 50px 0;
     }
 
+    .col-lg-4 {
+        margin-bottom: 30px;
+    }
+
     &__title {
         @extend %h2;
         font-family: $font-family-garamond;
@@ -14,7 +18,8 @@
     }
 
     &__item {
-        margin-bottom: 30px;
+        background-color: $text-light-color;
+        height: 100%;
 
         &-img {
             background-size: cover;
@@ -24,18 +29,26 @@
         }
 
         &-content {
-            background-color: $text-light-color;
             padding: 25px;
         }
 
-        &-title {
+        &-title,
+        &-subtitle {
             font-family: $font-family-crimson-pro;
-            font-size: 24px;
             color: $brand-primary;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        &-title {
+            font-size: 24px;
+        }
+
+        &-subtitle {
+            font-size: 18px;
         }
 
         &-text {
+            margin-top: 20px;
             margin-bottom: 30px;
         }
     }

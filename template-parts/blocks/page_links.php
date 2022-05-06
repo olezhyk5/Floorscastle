@@ -35,11 +35,17 @@ $page_links_pages = get_sub_field('page_links_pages');
                                 <h4 class="flc-links__item-title"><?php echo esc_html( $links_page['page_links_title'] ); ?></h4>
                             <?php endif; ?>
 
+                            <?php if ( ! empty( $links_page['page_links_subtitle'] ) ) : ?>
+                                <h5 class="flc-links__item-subtitle"><?php echo esc_html( $links_page['page_links_subtitle'] ); ?></h5>
+                            <?php endif; ?>
+
                             <?php if ( ! empty( $links_page['page_links_title'] ) ) : ?>
                                 <div class="flc-links__item-text"><?php echo esc_html( $links_page['page_links_description'] ); ?></div>
                             <?php endif; ?>
 
-                            <a href="<?php echo esc_html( $links_page['page_links_button']['url'] ); ?>" class="flc-btn flc-btn-border"><?php echo esc_html( $links_page['page_links_button']['title'] ); ?></a>
+                            <?php if ( ! empty( $links_page['page_links_button'] ) ) : ?>
+                                <a href="<?php echo esc_url( $links_page['page_links_button']['url'] ); ?>" class="flc-btn flc-btn-border"><?php echo esc_html( $links_page['page_links_button']['title'] ); ?></a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

@@ -229,43 +229,50 @@
     }
 
     &__lang {
-        width: 170px;
+        width: 120px;
         position: relative;
 
-        select {
-            padding-left: 10px;
-            padding-right: 10px;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            background-color: transparent;
-            border: none;
-            width: 100%;
-            display: block;
-            color: $light-gray-e;
-            font-size: 13px;
-            letter-spacing: 1.44px;
-            text-transform: uppercase;
+        .wpml-ls-legacy-dropdown {
+            .wpml-ls-current-language {
+                a {
+                    background-color: transparent;
+                    border: 0;
+                    color: $light-gray-e;
+                    font-size: 13px;
+                    letter-spacing: 1.44px;
+                    text-transform: uppercase;
 
-            &:active,
-            &:focus {
-                border: none;
-                background-color: transparent;
-                outline: none;
+                    > &:after {
+                        content: '';
+                        display: block;
+                        border: 0;
+                        border-right: 1px solid $text-light-color;
+                        border-bottom: 1px solid $text-light-color;
+                        position: absolute;
+                        right: 10px;
+                        top: 7px;
+                        transform: rotate(45deg);
+                        width: 7px;
+                        height: 7px;
+                    }
+
+                    &:focus,
+                    &:hover {
+                        background-color: transparent;
+                        color: $light-gray-e;
+                    }
+                }
+
+                &:hover > a {
+                    background-color: transparent;
+                    color: $light-gray-e;
+                }
+
+                .wpml-ls-sub-menu {
+                    background-color: $brand-primary;
+                    border-top: 0;
+                }
             }
-        }
-
-        &:after {
-            content: '';
-            width: 7px;
-            height: 7px;
-            display: block;
-            border-right: 1px solid $text-light-color;
-            border-bottom: 1px solid $text-light-color;
-            position: absolute;
-            right: 10px;
-            top: 4px;
-            transform: rotate(45deg);
         }
     }
 
@@ -464,6 +471,15 @@
                     color: $text-light-color;
                     line-height: 1;
                     margin-bottom: 20px;
+
+                    &[href="#"] {
+                        cursor: default;
+
+                        &:hover {
+                            cursor: default;
+                            text-decoration: none;
+                        }
+                    }
 
                     &:hover {
                         text-decoration: underline;

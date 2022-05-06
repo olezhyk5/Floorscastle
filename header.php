@@ -36,7 +36,7 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
         </div>
         <div class="flc-header__wrap">
             <div class="d-lg-block d-none flc-header__lang">
-                <?php echo do_shortcode('[gtranslate]'); ?>
+                <?php echo do_shortcode('[wpml_language_switcher]'); ?>
             </div>
 
             <nav class="flc-header__nav">
@@ -53,7 +53,7 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
 
                 <div class="flc-header__info d-lg-none">
                     <div class="flc-header__lang">
-                        <?php echo do_shortcode('[gtranslate]'); ?>
+                        <?php echo do_shortcode('[wpml_language_switcher]'); ?>
                     </div>
 
                     <a target="<?php echo esc_attr( $link_target ); ?>" href="<?php echo $booking_button['url']; ?>" class="flc-btn flc-btn-secondary" title="Book Tickets"><?php echo $booking_button['title'] ?></a>

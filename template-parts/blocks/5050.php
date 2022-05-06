@@ -9,7 +9,6 @@ $blocks = get_sub_field('blocks');
 <div id="nov-block-<?php echo get_row_index(); ?>" class="d-flex flc-card card_map">
     <?php foreach ( $blocks as $block ) :
         $bg_color = $block['center_text_background_colour'];
-        $bg_color = flc_get_bg_color($bg_color);
         $pre_heading = $block['5050_pre_heading'];
         $title = $block['5050_title'];
         $subtitle = $block['5050_subtitle'];
@@ -21,8 +20,8 @@ $blocks = get_sub_field('blocks');
         $subtext = $block['subtext'];
 
         if ( $block['5050_type'] === 'testimonial' ) : ?>
-            <div class="col-md-6 flc-card__col" <?php echo $bg_color; ?>>
-                <div class="flc-card__content text-center flc-col-quote">
+            <div class="col-md-6 flc-card__col flc-card__col--<?php echo $bg_color; ?>">
+                <div class="flc-card__content text-center flc-col-quote flc-col-content">
 					<span class="flc-col-quote__icon">
 						<img src="<?php echo get_template_directory_uri() . '/assets/img/quote.png'; ?>" alt="icon">
 					</span>
@@ -38,6 +37,8 @@ $blocks = get_sub_field('blocks');
                     <?php if ( ! empty( $author ) ) : ?>
                         <div class="flc-col-quote__author"><?php echo esc_html( $author ); ?></div>
                     <?php endif; ?>
+
+                    <?php flc_get_buttons($buttons); ?>
                 </div>
             </div>
         <?php elseif( $block['5050_type'] === 'image_cta' ) : ?>
@@ -57,11 +58,7 @@ $blocks = get_sub_field('blocks');
                                 <h5 class="flc-col-price__block-subtext"><?php echo esc_html( $subtitle ); ?></h5>
                             <?php endif; ?>
 
-                            <?php if ( ! empty( $buttons ) ) : ?>
-                                <?php foreach ( $buttons as $button ) : ?>
-                                    <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border-white <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                            <?php flc_get_buttons($buttons); ?>
 
                             <?php if ( ! empty( $subtext ) ) : ?>
                                 <div class="flc-col-price__bottom-text"><?php echo esc_html( $subtext ); ?></div>
@@ -71,7 +68,7 @@ $blocks = get_sub_field('blocks');
                 </div>
             </div>
         <?php elseif( $block['5050_type'] === 'cta' ) : ?>
-            <div class="col-md-6 flc-card__col" <?php echo $bg_color; ?>>
+            <div class="col-md-6 flc-card__col flc-card__col--<?php echo $bg_color; ?>">
                 <div class="flc-card__content text-center flc-col-content">
 
                     <?php if ( ! empty( $pre_heading ) ) : ?>
@@ -90,13 +87,7 @@ $blocks = get_sub_field('blocks');
                         <div class="flc-col-content__text"><?php echo wp_kses_post( $text ); ?></div>
                     <?php endif; ?>
 
-                    <?php if ( ! empty( $buttons ) ) : ?>
-                        <div class="d-flex align-items-center justify-content-center">
-                            <?php foreach ( $buttons as $key => $button ) : ?>
-                                <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-main' : 'flc-btn-border'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endif; ?>
+                    <?php flc_get_buttons($buttons); ?>
                 </div>
             </div>
         <?php elseif( $block['5050_type'] === 'image' ) : ?>
@@ -108,8 +99,8 @@ $blocks = get_sub_field('blocks');
                 <?php endif; ?>
             </div>
         <?php else : ?>
-            <div class="col-lg-6 flc-card__col" <?php echo $bg_color; ?>>
-                <div class="flc-card__content flc-col-info">
+            <div class="col-lg-6 flc-card__col flc-card__col--<?php echo $bg_color; ?>">
+                <div class="flc-card__content flc-col-info flc-col-content">
                     <?php if ( ! empty( $title ) ) : ?>
                         <h2 class="flc-col-info__title"><?php echo esc_html( $title ); ?></h2>
                     <?php endif; ?>
@@ -121,6 +112,8 @@ $blocks = get_sub_field('blocks');
                     <?php if ( ! empty( $text ) ) : ?>
                         <div class="flc-col-info__text"><?php echo wp_kses_post( $text ); ?></div>
                     <?php endif; ?>
+
+                    <?php flc_get_buttons($buttons); ?>
                 </div>
             </div>
         <?php endif; ?>

@@ -32,7 +32,7 @@ get_header();
 	<div class="flc-top-banner" style="<?php echo implode(' ', $banner_style); ?>">
 		<div class="flc-top-banner__content">
 			<div class="container">
-				<h1 class="flc-top-banner__title">Property</h1>
+				<h1 class="flc-top-banner__title">Property to Let</h1>
 				
 				<?php if ( function_exists('rank_math_the_breadcrumbs') ) { ?>
 					<div class="flc-breadcrumb">

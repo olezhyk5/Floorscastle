@@ -46,4 +46,20 @@
             }
         }
     }
+
+    &--standard {
+        @include change_bg('standard');
+    }
+
+    &--light {
+        @include change_bg('light');
+    }
+
+    &--cream {
+        @include change_bg('cream');
+    }
+
+    &--blue {
+        @include change_bg('blue');
+    }
 }

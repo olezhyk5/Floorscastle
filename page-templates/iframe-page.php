@@ -15,6 +15,10 @@ if ( isset( $_GET['event_id'] ) && is_numeric( $_GET['event_id'] ) ) {
 	}
 }
 
+if ( isset( $_GET['source'] ) && ! empty( $_GET['source'] ) ) {
+    $iframe_url = $_GET['source'];
+}
+
 get_header();
 
 if ( have_posts() ) :
@@ -83,7 +87,7 @@ if ( have_posts() ) :
                         <div class="flc-page__content">
                             <div class="row justify-content-center">
                                 <div class="col-xl-10">
-                                	<iframe width="100%" height="1000" src="<?php echo $iframe_url ?>" frameborder="0" allowfullscreen=""></iframe>
+                                	<iframe width="100%" height="1000" src="<?php echo esc_url( $iframe_url ); ?>" frameborder="0" allowfullscreen=""></iframe>
                                 </div>
                             </div>
                         </div>

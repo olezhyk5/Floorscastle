@@ -24,7 +24,19 @@ $tabs_repeater = get_sub_field('tabs_repeater');
                 <div class="tab-pane fade <?php echo $key === 0 ? 'show active' : ''; ?>" id="content-<?php echo $key; ?>" role="tabpanel" aria-labelledby="tab-<?php echo $key; ?>">
                     <div class="row">
                         <div class="flc-info__content">
-                            <?php echo wpautop( $item['tabs_content'] ); ?>
+                            <?php if ( $item['tabs_type'] === 'gallery' ) : ?>
+                                <div class="flc-info__gallery">
+                                    <?php foreach ( $item['tabs_gallery'] as $item_g ) : ?>
+                                        <div class="flc-info__gallery-item">
+                                            <a href="<?php echo esc_url( $item_g['url'] ); ?>" class="flc-info__gallery-img">
+                                                <img src="<?php echo esc_url( $item_g['url'] ); ?>" alt="">
+                                            </a>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            <?php else : ?>
+                                <?php echo wpautop( $item['tabs_content'] ); ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

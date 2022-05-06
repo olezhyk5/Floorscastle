@@ -101,6 +101,10 @@
         width: 184px;
         position: relative;
 
+        &--mt {
+            margin-top: 40px;
+        }
+
         &::before {
             content: '';
             width: 50px;

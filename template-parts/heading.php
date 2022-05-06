@@ -44,8 +44,10 @@ if ( $height === 'large' ) : ?>
 
             <?php if ( ! empty( $buttons ) ) : ?>
                 <div class="d-flex justify-content-center align-items-center flc-main-banner__btns">
-                    <?php foreach ( $buttons as $key => $button ) : ?>
-                        <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-secondary' : 'flc-btn-border-white'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+                    <?php foreach ( $buttons as $key => $button ) :
+                        $new_tab = isset( $button['new_tab'] ) && $button['new_tab'] ? '_blank' : '_self';
+                        ?>
+                        <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn <?php echo $key === 1 ? 'flc-btn-secondary' : 'flc-btn-border-white'; ?> <?php echo esc_attr( $button['center_text_background_colour'] ); ?>" target="<?php echo esc_attr( $new_tab ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>

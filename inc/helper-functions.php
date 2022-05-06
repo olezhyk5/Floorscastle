@@ -341,3 +341,21 @@ function flc_nav_menu_objects( $items, $args ) {
     return $items;
 }
 add_filter('wp_nav_menu_objects', 'flc_nav_menu_objects', 10, 2);
+
+/**
+ * Get buttons.
+ *
+ * @param $buttons
+ * @return void
+ */
+function flc_get_buttons($buttons) {
+    if ( ! empty( $buttons ) ) : ?>
+        <div class="d-flex align-items-center justify-content-center">
+            <?php foreach ( $buttons as $button ) :
+                $new_tab = isset( $button['new_tab'] ) && $button['new_tab'] ? '_blank' : '_self';
+                ?>
+                <a href="<?php echo esc_url( $button['link'] ); ?>" class="flc-btn flc-btn-border-white flc-btn-<?php echo esc_attr( $button['center_text_background_colour'] ); ?>" target="<?php echo esc_attr( $new_tab ); ?>"><?php echo esc_html( $button['text'] ); ?></a>
+            <?php endforeach; ?>
+        </div>
+    <?php endif;
+}

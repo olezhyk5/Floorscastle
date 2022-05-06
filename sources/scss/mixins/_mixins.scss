@@ -44,3 +44,25 @@
 	top: 0;
 	left: 0;
 }
+
+@mixin change_bg($color) {
+	@if $color == 'light' {
+		background-color: $light-gray;
+	} @else if ( $color == 'standard' ) {
+		background-color: $light-gray-b;
+	} @else if ( $color == 'cream' ) {
+		background-color: $text-light-color;
+	} @else if ( $color == 'blue' ) {
+		background-color: $brand-primary;
+
+		@for $i from 1 through 6 {
+			h#{7 - $i} {
+				color: $white;
+			}
+		}
+
+		div, p, li {
+			color: $white !important;
+		}
+	}
+}
