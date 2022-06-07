@@ -1,0 +1,14 @@
+
+.flc-error {
+    text-align: center;
+    padding: 100px 0;
+
+    &__title,
+    &__text {
+        margin-bottom: 25px;
+    }
+
+    &__link {
+        margin: 0 auto;
+    }
+}
