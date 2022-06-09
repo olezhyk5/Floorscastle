@@ -22,11 +22,11 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
 <body <?php body_class(); ?>>
     <header class="flc-header">
         <div class="flc-header__top">
-            <a href="<?php echo site_url('/'); ?>" class="flc-header__logo" title="logo">
+            <a href="<?php echo home_url('/'); ?>" class="flc-header__logo" title="logo">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo.svg" alt="logo">
             </a>
             <div class="flc-header__search">
-                <form method="get" action="<?php echo site_url('/'); ?>" class="flc-header__search-form">
+                <form method="get" action="<?php echo home_url('/'); ?>" class="flc-header__search-form">
                     <input type="text" name="s" placeholder="Search">
                 </form>
                 <div class="flc-header__search-icon">
@@ -36,7 +36,7 @@ $link_target = $booking_button['target'] ? $booking_button['target'] : '_self';
         </div>
         <div class="flc-header__wrap">
             <div class="d-lg-block d-none flc-header__lang">
-                <?php echo do_shortcode('[wpml_language_switcher]'); ?>
+                <?php echo do_shortcode('[gtranslate]'); ?>
             </div>
 
             <nav class="flc-header__nav">

@@ -229,8 +229,41 @@
     }
 
     &__lang {
-        width: 120px;
         position: relative;
+        width: 160px;
+
+        select {
+            padding-left: 10px;
+            appearance: none;
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            display: block;
+            color: $text-light-color;
+            font-size: 13px;
+            letter-spacing: 1.44px;
+            text-transform: uppercase;
+
+            &:active,
+            &:focus {
+                border: none;
+                background-color: transparent;
+                outline: none;
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            border: solid $text-light-color;
+            border-width: 0 1px 1px 0;
+            position: absolute;
+            right: 0;
+            top: 4px;
+            width: 7px;
+            height: 7px;
+            transform: rotate(45deg);
+        }
 
         .wpml-ls-legacy-dropdown {
             .wpml-ls-current-language {
