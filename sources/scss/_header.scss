@@ -250,6 +250,11 @@
                 background-color: transparent;
                 outline: none;
             }
+
+            option {
+                background-color: $brand-primary;
+                color: $white;
+            }
         }
 
         &::after {
